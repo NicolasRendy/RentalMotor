@@ -88,7 +88,7 @@
                 <div class="motor-item">
                     <img src="{{ asset('images/Yamaha Mio.png') }}" alt="Yamaha">
                     <h3>Yamaha Mio</h3>
-                    <p>Harga: Rp 75,000/hari</p>
+                    <p>Harga: Rp 100,000/hari</p>
                     <button onclick="pilihMotor('yamaha')">Pesan Motor</button>
                 </div>
                 <div class="motor-item">
