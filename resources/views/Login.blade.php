@@ -79,7 +79,7 @@
             <input type="submit" name="login" value="Login">
         </form>
         <div class="register-link">
-            <a href="Registrasi.php">Belum punya akun? Daftar di sini</a>
+            <a href="/Registrasi">Belum punya akun? Daftar di sini</a>
         </div>
     </div>
     <footer>

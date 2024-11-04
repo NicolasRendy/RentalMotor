@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
+    <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrasi Rental Motor Tunas Baru</title>
     <link rel="stylesheet" href="{{ asset('css/styleInclude.css') }}">
+    <title>Rental Motor Tunas Baru</title>
     <style>
         .content {
             display: flex;
@@ -53,16 +52,19 @@
             background-color: #a04545;
         }
     </style>
+
 </head>
+
 <body>
     <header>
         <nav>
-            <a href="Home.php" class="nav-button">Home</a>
-            <a href="layanan.php" class="nav-button">Melihat Layanan</a> 
-            <a href="Login.php" class="nav-button">Login</a>
+            <a href="/home" class="nav-button">Home</a>
+            <a href="/layanan" class="nav-button">Melihat Layanan</a>
+            <a href="/login" class="nav-button">Login</a>
             <a href="/Registrasi" class="nav-button">Registrasi</a>
         </nav>
     </header><br><br>
+
     <div class="content">
         <div class="registration-container">
             <h2>Registrasi Pengguna</h2>
