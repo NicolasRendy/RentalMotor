@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="{{ asset('css/styleInclude.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/styleInclude.css') }}">
     <title>Layanan Rental Motor Tunas Baru</title>
     <style>
         .container {
@@ -45,6 +45,7 @@
             <a href="/home" class="nav-button">Home</a>
             <a href="/layanan" class="nav-button">Melihat Layanan</a>
             <a href="/login" class="nav-button">Login</a>
+            <a href="/Registrasi" class="nav-button">Registrasi</a>
         </nav>
     </header>
 

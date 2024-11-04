@@ -52,6 +52,7 @@
             <a href="/home" class="nav-button">Home</a>
             <a href="/layanan" class="nav-button">Melihat Layanan</a>
             <a href="/login" class="nav-button">Login</a>
+            <a href="/Registrasi" class="nav-button">Registrasi</a>
         </nav>
     </header>
     <br><br>

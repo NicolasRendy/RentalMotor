@@ -21,3 +21,7 @@ Route:: get('/login', function() {
 Route:: get('/navTest', function() {
     return view('testNav');
 });
+
+Route:: get('/Registrasi', function() {
+    return view('Registrasi');
+});
