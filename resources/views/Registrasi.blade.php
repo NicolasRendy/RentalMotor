@@ -1,5 +1,6 @@
 <html lang="id">
-    <!DOCTYPE html>
+<!DOCTYPE html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -69,7 +70,16 @@
     <div class="content">
         <div class="registration-container">
             <h2>Registrasi Pengguna</h2>
-            <form action="../model/register_user.php" method="POST">
+            <!-- <form action="/RegistrasiProses" method="POST">
+                <input type="nama" id="nama" name="nama" placeholder="Nama Lengkap*" required><br>
+                <input type="alamat" id="alamat" name="alamat" placeholder="Alamat*" required><br>
+                <input type="email" id="email" name="email" placeholder="Email*" required><br>
+                <input type="nomorTelpon" id="nomorTelpon" name="nomorTelpon" placeholder="Nomor Telepon*" required><br>
+                <input type="password" id="password" name="password" placeholder="Kata Sandi*" required><br><br>
+                <input type="submit" name="daftar" value="Daftar">
+            </form> -->
+            <form action="/RegistrasiProses" method="POST">
+                @csrf <!-- Tambahkan ini untuk menginput token CSRF -->
                 <input type="nama" id="nama" name="nama" placeholder="Nama Lengkap*" required><br>
                 <input type="alamat" id="alamat" name="alamat" placeholder="Alamat*" required><br>
                 <input type="email" id="email" name="email" placeholder="Email*" required><br>
@@ -77,10 +87,12 @@
                 <input type="password" id="password" name="password" placeholder="Kata Sandi*" required><br><br>
                 <input type="submit" name="daftar" value="Daftar">
             </form>
+
         </div>
     </div>
     <footer>
         <p>Hubungi kami: 081-233-689 | email@TunasBaru.com</p>
     </footer>
 </body>
+
 </html>

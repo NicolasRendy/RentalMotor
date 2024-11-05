@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,3 +26,5 @@ Route:: get('/navTest', function() {
 Route:: get('/Registrasi', function() {
     return view('Registrasi');
 });
+
+Route::post('/RegistrasiProses', [UserController::class, 'registerUser'])->name('registrasi.proses');
