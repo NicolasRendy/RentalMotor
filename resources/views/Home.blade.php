@@ -22,7 +22,7 @@
         }
 
         h2 {
-            color: #c20404;
+            color: black;
             margin-bottom: 20px;
         }
 

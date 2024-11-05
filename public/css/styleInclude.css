@@ -6,7 +6,7 @@ body {
 }
 
 header {
-    background-color: #c20404;
+    background-color: #6f99df;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -24,7 +24,7 @@ nav {
 
 .nav-button {
     display: inline-block;
-    background-color: #c20404;
+    background-color: #6f99df;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
@@ -35,11 +35,11 @@ nav {
 }
 
 .nav-button:hover {
-    background-color: #a10202;
+    background-color: #583bb5;
 }
 
 footer {
-    background-color: #a10202;
+    background-color: #6f99df;
     color: white;
     text-align: center;
     padding: 0px;
@@ -51,7 +51,7 @@ footer {
 
 button {
     color: white;
-    background-color: #f77801;
+    background-color: #6f99df;
     border: none;
     padding: 0.5em 1em;
     cursor: pointer;
@@ -67,11 +67,12 @@ button {
 
 .motor-item {
     background: rgb(175, 3, 3);
+    background-color: #d7e2fc;
     padding: 1em;
     box-shadow: 0 0 10px rgb(247, 244, 244);
     width: 30%;
     text-align: center;
-    color: white;
+    color: black;
     height: 360px;
     /* contoh tinggi */
     border: 1px solid #ccc;

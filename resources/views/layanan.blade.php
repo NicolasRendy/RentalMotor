@@ -18,6 +18,7 @@
             margin: 2em 0;
             box-shadow: 0 0 10px rgb(248, 245, 245);
             color: white;
+            background-color: #6f99df;
         }
 
         label,
@@ -30,10 +31,14 @@
         input[type="submit"],
         button {
             color: white;
-            background-color: #f77801;
+            background-color: #6f99df;
             border: none;
             padding: 0.5em 1em;
             cursor: pointer;
+        }
+    
+        button:hover {
+            background: #583bb5;
         }
 
     </style>

@@ -20,6 +20,7 @@
             width: 300px;
             height: 400px;
             text-align: center;
+            background-color: #d7e2fc;
         }
 
         .registration-container h2 {
@@ -41,7 +42,7 @@
         .registration-container input[type="submit"] {
             width: calc(100% - 20px);
             padding: 10px;
-            background-color: #af4c4c;
+            background-color: #6f99df;
             color: white;
             border: none;
             border-radius: 4px;
@@ -49,7 +50,7 @@
         }
 
         .registration-container input[type="submit"]:hover {
-            background-color: #a04545;
+            background-color: #583bb5;
         }
     </style>
 
@@ -69,11 +70,11 @@
         <div class="registration-container">
             <h2>Registrasi Pengguna</h2>
             <form action="../model/register_user.php" method="POST">
-                <input type="nama" id="nama" name="nama" placeholder="Nama Lengkap" required><br>
-                <input type="alamat" id="alamat" name="alamat" placeholder="Alamat" required><br>
-                <input type="email" id="email" name="email" placeholder="Email" required><br>
-                <input type="nomorTelpon" id="nomorTelpon" name="nomorTelpon" placeholder="Nomor Telepon" required><br>
-                <input type="password" id="password" name="password" placeholder="Kata Sandi" required><br><br>
+                <input type="nama" id="nama" name="nama" placeholder="Nama Lengkap*" required><br>
+                <input type="alamat" id="alamat" name="alamat" placeholder="Alamat*" required><br>
+                <input type="email" id="email" name="email" placeholder="Email*" required><br>
+                <input type="nomorTelpon" id="nomorTelpon" name="nomorTelpon" placeholder="Nomor Telepon*" required><br>
+                <input type="password" id="password" name="password" placeholder="Kata Sandi*" required><br><br>
                 <input type="submit" name="daftar" value="Daftar">
             </form>
         </div>
@@ -81,7 +82,5 @@
     <footer>
         <p>Hubungi kami: 081-233-689 | email@TunasBaru.com</p>
     </footer>
-
 </body>
-
 </html>

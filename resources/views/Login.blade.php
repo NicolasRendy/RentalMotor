@@ -13,6 +13,7 @@
             background: white;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #d7e2fc;
         }
 
         h2 {
@@ -41,14 +42,14 @@
             padding: 10px;
             border: none;
             border-radius: 5px;
-            background: #ac0303;
+            background: #6f99df;
             color: white;
             font-size: 16px;
             cursor: pointer;
         }
 
         input[type="submit"]:hover {
-            background: #c20303;
+            background: #583bb5;
         }
 
         .register-link {
@@ -70,10 +71,10 @@
     <div class="container">
         <h2>Login Rental Motor</h2>
         <form action="../model/Loginmodel.php" method="POST">
-            <label for="email">Email:</label>
+            <label for="email" >Email*:</label>
             <input type="text" id="email" name="email" required>
 
-            <label for="password">Password:</label>
+            <label for="password" >Password*:</label>
             <input type="password" id="password" name="password" required>
 
             <input type="submit" name="login" value="Login">
