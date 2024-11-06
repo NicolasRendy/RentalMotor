@@ -17,7 +17,7 @@ class UserController extends Controller
             'nama' => $request->input('nama'),
             'alamat' => $request->input('alamat'),
             'email' => $request->input('email'),
-            'nomorTelpon' => $request->input('nomorTelpon'),
+            'noTelepon' => $request->input('nomorTelpon'),
             'password' => bcrypt($request->input('password')), // Enkripsi password
         ];
 
