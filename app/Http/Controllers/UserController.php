@@ -8,7 +8,7 @@ use Symfony\Component\Console\Helper\Helper;
 
 class UserController extends Controller
 {
-    public function registerUser(Request $request):string //RedirectResponse
+    public function registerUser(Request $request)//git s:string //RedirectResponse
     {
         //Helper('form');
 
@@ -21,9 +21,11 @@ class UserController extends Controller
             'password' => bcrypt($request->input('password')), // Enkripsi password
         ];
 
-        $user = User::create($data);
+        //$user = User::create($data);
 
         // Redirect atau kembalikan respons sukses
-        return redirect()->route('/layanan')->with('success', 'Registrasi berhasil!');
+        // return redirect()->route("/layanan");
+        return view('layanan');
     }
+
 }
