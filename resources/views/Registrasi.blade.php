@@ -105,7 +105,7 @@
                 <input type="password" id="password" name="password" placeholder="Kata Sandi*" required><br><br>
                 <input type="submit" name="daftar" value="Daftar">
             </form> -->
-            <form action="/RegistrasiProses" method="POST">
+            <form action="/RegistrasiProses" method="POST" enctype="multipart/form-data">
                 @csrf <!-- Tambahkan ini untuk menginput token CSRF -->
                 <input type="nama" id="nama" name="nama" placeholder="Nama Lengkap*" required><br>
                 <input type="alamat" id="alamat" name="alamat" placeholder="Alamat*" required><br>
