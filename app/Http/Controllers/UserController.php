@@ -18,8 +18,22 @@ class UserController extends Controller
             'alamat' => $request->input('alamat'),
             'email' => $request->input('email'),
             'noTelepon' => $request->input('nomorTelpon'),
-            'password' => bcrypt($request->input('password')) // Enkripsi password
+            'password' => bcrypt($request->input('password'))// Enkripsi password
         ];
+
+        // Menyimpan gambar
+        // if ($request->hasFile('image')) {
+        //     $image = $request->file('image');
+        //     $imagePath = $image->store('fotoKTP', 'public');  // Menyimpan file di disk 'public'
+        //     $data['fotoKTP'] = $imagePath;  // Menyimpan path file ke dalam array $data
+        // }
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            // Mengambil konten gambar dalam bentuk biner
+            $imageData = file_get_contents($image->getRealPath());
+            // Mengonversi gambar ke bentuk base64, jika diperlukan
+            $data['fotoKTP'] = $imageData; // Menyimpan gambar dalam bentuk biner
+        }
 
         $user = User::create($data);
 
