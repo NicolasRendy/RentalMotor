@@ -18,10 +18,11 @@ class UserController extends Controller
             'alamat' => $request->input('alamat'),
             'email' => $request->input('email'),
             'noTelepon' => $request->input('nomorTelpon'),
-            'password' => bcrypt($request->input('password')), // Enkripsi password
+            'password' => bcrypt($request->input('password')) // Enkripsi password
         ];
 
-        //$user = User::create($data);
+        $user = User::create($data);
+
 
         // Redirect atau kembalikan respons sukses
         // return redirect()->route("/layanan");
