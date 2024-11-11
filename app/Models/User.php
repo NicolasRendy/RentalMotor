@@ -9,9 +9,8 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
-    public $timestamps=false;
+    public $timestamps = false;
     protected $table = 'pelanggan'; // Nama tabel
     protected $primaryKey = 'id_pelanggan';
     protected $fillable = [
@@ -19,7 +18,8 @@ class User extends Authenticatable
         'email',
         'password',
         'noTelepon',
-        'alamat'];
+        'alamat',
+        'fotoKTP'];
 
     public function registrasi(array $data){
         self::create($data);
