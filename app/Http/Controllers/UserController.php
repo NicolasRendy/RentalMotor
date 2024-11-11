@@ -41,6 +41,7 @@ class UserController extends Controller
         ];
     
         if(Auth::attempt($data,true)){
+            session()->regenerate();
             return redirect('/daftarPenyewaan');
         }
 

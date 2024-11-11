@@ -21,6 +21,10 @@ class User extends Authenticatable
         'alamat',
         'fotoKTP'];
 
+    protected $hidden = [
+        'remember_token'
+    ];
+
     public function registrasi($data){
         self::create($data);
     }
