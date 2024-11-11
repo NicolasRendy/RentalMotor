@@ -35,7 +35,7 @@ class UserController extends Controller
         $user = User::create($data);
 
         // Redirect or return a success view
-        return redirect('/layanan');
+        return redirect('/daftarPenyewaan');
     }
 
     // public function loginProses(Request $request)

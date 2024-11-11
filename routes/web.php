@@ -36,4 +36,7 @@ Route::get('/Penyewaan',function(){
     return view('Penyewaan');
 });
 
+Route::get('/daftarPenyewaan',function(){
+    return view('daftarPenyewaan');
+});
 
