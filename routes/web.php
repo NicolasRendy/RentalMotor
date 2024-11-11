@@ -31,3 +31,9 @@ Route:: get('/Registrasi', function() {
 });
 
 Route::post('/RegistrasiProses', [UserController::class, 'registerUser'])->name('registrasi.proses');
+
+Route::get('/Penyewaan',function(){
+    return view('Penyewaan');
+});
+
+
