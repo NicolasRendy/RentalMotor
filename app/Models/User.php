@@ -21,7 +21,7 @@ class User extends Authenticatable
         'alamat',
         'fotoKTP'];
 
-    public function registrasi(array $data){
+    public function registrasi($data){
         self::create($data);
     }
     
