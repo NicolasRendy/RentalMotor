@@ -16,7 +16,7 @@ class UserController extends Controller
             'alamat' => $request->input('alamat'),
             'email' => $request->input('email'),
             'noTelepon' => $request->input('nomorTelpon'),
-            'password' => $request->input('password') // Enkripsi password
+            'password' => bcrypt($request->input('password')) // Enkripsi password
         ];
 
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
@@ -39,19 +39,12 @@ class UserController extends Controller
             'email' => $request->input('email'),
             'password' => $request->input('password')
         ];
-        
-        dd($data);
-
-        $user = User::where('email', $data['email'])->first();
     
-        if ($user && Hash::check($data['password'], $user->password)) {
-            // Jika login berhasil
-            Auth::login($user); // Menggunakan sistem Auth Laravel untuk login
-            return redirect('/layanan');
-        } else {
-            // Jika login gagal
-            return redirect()->back()->withErrors(['email' => 'Email atau password salah.']);
+        if(Auth::attempt($data,true)){
+            return redirect('/daftarPenyewaan');
         }
+
+        return redirect()->back()->with('gagal',"Email Atau Password Anda Salah!");
     }
 
     
