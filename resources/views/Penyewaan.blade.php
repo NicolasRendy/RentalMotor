@@ -116,11 +116,11 @@
                 <img src="motor-image.png" alt="Motor" />
             </div>
             <div class="info">
-                <p><strong>Nama:</strong> Della</p>
-                <p><strong>Alamat:</strong> Gedongkiwo</p>
-                <p><strong>Jenis Motor:</strong> Honda Genio</p>
-                <p><strong>No. Plat:</strong> AB 1111 UU</p>
-                <p><strong>Tanggal Penyewaan:</strong> 20/10/2024</p>
+                <p><strong>Nama:</strong> NULL</p>
+                <p><strong>Alamat:</strong> NULL</p>
+                <p><strong>Jenis Motor:</strong> NULL</p>
+                <p><strong>No. Plat:</strong> NULL</p>
+                <p><strong>Tanggal Penyewaan:</strong> NULL</p>
                 <button class="kirim-button">Kirim</button>
             </div>
         </div>

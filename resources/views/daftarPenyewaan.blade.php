@@ -53,7 +53,7 @@
             <a href="/login" class="nav-button">Log Out</a>
         </nav>
     </header>
-
+    <form action="/Penyewaan">
     <div class="container">
         <section>
             <h2 align=center>Selamat Datang di Rental Tunas Baru</h2>
@@ -117,7 +117,9 @@
                 </div>
             </div>
         </section>
-    </div> <br><br><br><br><br><br>
+    </div>
+    </form>
+ <br><br><br><br><br><br>
     <footer>
         <p>Hubungi kami: 081-233-689 | email@TunasBaru.com</p>
     </footer>
