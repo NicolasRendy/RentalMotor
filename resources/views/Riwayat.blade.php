@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Penyewaan</title>
+    <title>Riwayat Penyewaan</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -108,7 +108,7 @@
 <body>
     <header class="header">
         <button class="back-button">&lt;</button>
-        <h1>Penyewaan</h1>
+        <h1>Riwayat Penyewaan</h1>
     </header>
     <div class="penyewaan-container">
         <div class="penyewaan-card">
@@ -120,10 +120,11 @@
                 <p><strong>Alamat:</strong> NULL</p>
                 <p><strong>Jenis Motor:</strong> NULL</p>
                 <p><strong>No. Plat:</strong> NULL</p>
+                <p><strong>Tanggal Penyewaan:</strong> NULL</p>
                 <p><strong>Tanggal Pengambilan:</strong> NULL</p>
-                <p><strong>Tanggal Pengambilan:</strong> NULL</p>
+                <p><strong>Tanggal Pengembalian:</strong> NULL</p>
                 <p><strong>Harga:</strong> NULL</p>
-                <button class="kirim-button">Kirim</button>
+                <button class="kirim-button">Oke</button>
             </div>
         </div>
     </div>
