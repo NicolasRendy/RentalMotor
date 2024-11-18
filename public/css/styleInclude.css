@@ -105,3 +105,10 @@ button {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+nav a.active {
+    color: #ffffff;
+    background-color: #007bff; /* Contoh warna latar */
+    border-bottom: 3px solid #0056b3; /* Bisa untuk efek garis bawah */
+}
+
+
