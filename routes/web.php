@@ -40,3 +40,7 @@ Route::get('/daftarPenyewaan',function(){
     return view('daftarPenyewaan');
 });
 
+Route::get('/Help',function(){
+    return view('Help');
+});
+
