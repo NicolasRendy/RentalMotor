@@ -64,7 +64,7 @@
                 </p><br>
                 <div class="motor-list">
                     <div class="motor-item">
-                        <img src="{{ asset('images/Vario 125.jpg') }}" alt="Honda ">
+                        <img src="{{ asset('images/Honda Vario 125.jpg') }}" alt="Honda ">
                         <h3>Honda Vario 125</h3>
                         <p>Harga: Rp 85,000/hari</p>
                         <button onclick="pilihMotor('honda')">Pesan Motor</button>

@@ -5,24 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Help</title>
     <style>
-        .header {
-            display: flex;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #6f99df;
-            width: 100%;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-bottom: 120px;
-            height: 20px;
-        }
-
-        .header h1 {
-            flex-grow: 1;
-            margin: 0;
-            color: white;
-            text-align: left;
-        }
-
         .input-container {
             margin-bottom: 20px;
         }
@@ -63,7 +45,7 @@
     </style>
 </head>
 <body>
-<header>
+    <header>
         <nav>
             <a href="/home" class="nav-button">Home</a>
             <a href="/layanan" class="nav-button">Melihat Layanan</a>
