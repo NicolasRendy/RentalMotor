@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('css/styleInclude.css') }}">
     <title>Riwayat Penyewaan</title>
     <style>
         body {
@@ -35,15 +36,6 @@
             text-align: left;
         }
 
-        .back-button {
-            background: none;
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
-            color: white;
-            padding: 5px 10px;
-        }
-
         .penyewaan-container {
             background-color: #ffffff;
             padding: 20px;
@@ -57,13 +49,6 @@
             justify-content: space-between;
             align-items: center;
             gap: 20px;
-        }
-
-        .motor-image img {
-            border-radius: 10px;
-            width: 150px;
-            height: auto;
-            border: 3px solid #e0e0e0;
         }
 
         .info {
@@ -107,14 +92,15 @@
 
 <body>
     <header class="header">
-        <button class="back-button">&lt;</button>
-        <h1>Riwayat Penyewaan</h1>
+        <nav>
+            <a href="/-" class="nav-button">Help</a>
+            <a href="/daftarPenyewaan" class="nav-button">Daftar Motor</a>
+            <a href="/Riwayat" class="nav-button active">Riwayat Penyewaan</a>
+            <a href="/login" class="nav-button">Log Out</a>
+        </nav>
     </header>
     <div class="penyewaan-container">
         <div class="penyewaan-card">
-            <div class="motor-image">
-                <img src="motor-image.png" alt="Motor" />
-            </div>
             <div class="info">
                 <p><strong>Nama:</strong> NULL</p>
                 <p><strong>Alamat:</strong> NULL</p>
