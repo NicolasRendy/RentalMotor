@@ -24,9 +24,5 @@ class User extends Authenticatable
     protected $hidden = [
         'remember_token'
     ];
-
-    public function registrasi($data){
-        self::create($data);
-    }
     
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MotorController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -11,9 +12,7 @@ Route::get('/home', function() {
     return view('Home');
 });
 
-Route:: get('/layanan', function() {
-    return view('layanan');
-});
+
 
 Route:: get('/login', function() {
     return view('login');
@@ -44,3 +43,9 @@ Route::get('/Riwayat',function(){
     return view('Riwayat');
 });
 
+
+Route::get('/layanan', [MotorController::class, 'getAllMotor'])->name('layanan.index');
+
+// Route:: get('/layanan', function() {
+//     return view('layanan');
+// });
