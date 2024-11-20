@@ -12,21 +12,18 @@ Route::get('/home', function() {
     return view('Home');
 });
 
-
-
 Route:: get('/login', function() {
     return view('login');
 });
 
 Route::post('/LoginCek', [UserController::class, 'loginProses']);
 
-
-Route:: get('/navTest', function() {
-    return view('testNav');
-});
-
 Route:: get('/Registrasi', function() {
     return view('Registrasi');
+});
+
+Route :: get('/cekGambar',function(){
+    return view('testGambar');
 });
 
 Route::post('/RegistrasiProses', [UserController::class, 'registerUser'])->name('registrasi.proses');
@@ -45,7 +42,3 @@ Route::get('/Riwayat',function(){
 
 
 Route::get('/layanan', [MotorController::class, 'getAllMotor'])->name('layanan.index');
-
-// Route:: get('/layanan', function() {
-//     return view('layanan');
-// });
