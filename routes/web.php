@@ -40,5 +40,9 @@ Route::get('/Riwayat',function(){
     return view('Riwayat');
 });
 
-
 Route::get('/layanan', [MotorController::class, 'getAllMotor'])->name('layanan.index');
+
+
+// test
+Route::get('/motors', [MotorController::class, 'index'])->name('motors.index');
+Route::post('/motors', [MotorController::class, 'store'])->name('motors.store');
