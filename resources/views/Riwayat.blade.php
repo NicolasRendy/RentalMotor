@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 <html lang="id">
+<!DOCTYPE html>
 
 <head>
     <meta charset="UTF-8">
@@ -7,91 +7,55 @@
     <link rel="stylesheet" href="{{ asset('css/styleInclude.css') }}">
     <title>Riwayat Penyewaan</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
+        .container {
+            width: 60%;
+            margin: 50px auto;
+            /* Menambahkan margin atas */
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100vh;
+            justify-content: center;
+            /* Menempatkan elemen di tengah secara horizontal */
+            overflow: hidden;
         }
 
-        .header {
-            display: flex;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #6f99df;
-            width: 100%;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-bottom: 120px;
-            height: 20px;
-        }
-
-        .header h1 {
-            flex-grow: 1;
-            margin: 0;
-            color: white;
-            text-align: left;
-        }
-
-        .penyewaan-container {
-            background-color: #ffffff;
+        .nota-container {
+            background-color: #e7f0ff;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
+            width: 300px;
         }
 
-        .penyewaan-card {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
+        .nota-header {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
         }
 
-        .info {
+        .nota-info {
             text-align: left;
-            background-color: #dce5f4;
-            padding: 15px;
-            border-radius: 10px;
-            flex-grow: 1;
-        }
-
-        .info p {
-            margin: 5px 0;
-        }
-
-        .kirim-button {
-            background-color: #3d80e4;
-            color: white;
-            padding: 10px 20px;
-            border: none;
+            margin: 0 auto;
+            max-width: 250px;
+            padding: 10px;
+            background-color: white;
             border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        .kirim-button:hover {
-            background-color: #2c66b8;
+        .nota-info div {
+            margin-bottom: 8px;
         }
 
-        footer {
-            background-color: #6f99df;
-            color: white;
-            text-align: center;
-            padding: 0px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            height: 45px;
+        .nota-info span {
+            display: inline-block;
+            width: 110px;
         }
     </style>
+
 </head>
 
 <body>
-    <header class="header">
+    <header>
         <nav>
             <a href="/-" class="nav-button">Help</a>
             <a href="/daftarPenyewaan" class="nav-button">Daftar Motor</a>
@@ -99,21 +63,26 @@
             <a href="/login" class="nav-button">Log Out</a>
         </nav>
     </header>
-    <div class="penyewaan-container">
-        <div class="penyewaan-card">
-            <div class="info">
-                <p><strong>Nama:</strong> NULL</p>
-                <p><strong>Alamat:</strong> NULL</p>
-                <p><strong>Jenis Motor:</strong> NULL</p>
-                <p><strong>No. Plat:</strong> NULL</p>
-                <p><strong>Tanggal Penyewaan:</strong> NULL</p>
-                <p><strong>Tanggal Pengambilan:</strong> NULL</p>
-                <p><strong>Tanggal Pengembalian:</strong> NULL</p>
-                <p><strong>Harga:</strong> NULL</p>
-                <button class="kirim-button">Oke</button>
-            </div>
+    <form action="/daftarPenyewaan">
+        <div class="container">
+            <section>
+                <div class="nota-container">
+                    <div class="nota-header">Nota Penyewaan</div>
+                    <div class="nota-info">
+                        <p><strong>Nama:</strong> NULL</p>
+                        <p><strong>Alamat:</strong> NULL</p>
+                        <p><strong>Jenis Motor:</strong> NULL</p>
+                        <p><strong>No. Plat:</strong> NULL</p>
+                        <p><strong>Tanggal Penyewaan:</strong> NULL</p>
+                        <p><strong>Tanggal Pengambilan:</strong> NULL</p>
+                        <p><strong>Tanggal Pengembalian:</strong> NULL</p>
+                        <p><strong>Harga:</strong> NULL</p>
+                        <button class="kirim-button">Oke</button>
+                    </div>
+            </section>
         </div>
-    </div>
+    </form>
+    <br><br><br><br><br><br>
     <footer>
         <p>Hubungi kami: 081-233-689 | email@TunasBaru.com</p>
     </footer>
