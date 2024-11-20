@@ -50,6 +50,12 @@
             display: inline-block;
             width: 110px;
         }
+
+        .kirim-button {
+            display: block;
+            margin: 10px auto;
+            /* Mengatur jarak atas-bawah jika diinginkan dan otomatis di sisi horizontal */
+        }
     </style>
 
 </head>
@@ -76,7 +82,7 @@
                         <p><strong>Tanggal Penyewaan:</strong> NULL</p>
                         <p><strong>Tanggal Pengambilan:</strong> NULL</p>
                         <p><strong>Tanggal Pengembalian:</strong> NULL</p>
-                        <p><strong>Harga:</strong> NULL</p>
+                        <p><strong>Harga:</strong> NULL</p><br>
                         <button class="kirim-button">Oke</button>
                     </div>
             </section>
