@@ -64,13 +64,10 @@
                 <div class="motor-list">
                     @foreach ($motors as $item)
                     <div class="motor-item">
-                        @if($motors->fotoMotorBase64)
-                            <img src="data:image/jpeg;base64,{{ $motor->fotoMotorBase64 }}" alt="{{ $motor->jenisMotor }}" width="100">
-                        @else
-                            <p>No Image</p>
-                        @endif
+                            <img src="data:image/jpeg;base64,{{ base64_encode($item->fotoMotor) }}" alt="{{ $item->jenisMotor }}" width: 100px;>
                         <h3>{{ $item->jenisMotor }}</h3>
                         <p>Harga: Rp {{ number_format($item->harga, 0, ',', '.') }}/hari</p>
+                        <button>Pesan Motor</button>
                     </div>
                     @endforeach
                 </div>

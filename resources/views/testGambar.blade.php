@@ -1,21 +1,51 @@
-<?php
-
-$folderPath = 'D:\ProjectPI_Motor\public\images'; // Ganti dengan path folder tempat gambar disimpan
-
-// Membuka folder
-if ($handle = opendir($folderPath)) {
-    // Looping melalui semua file dalam folder
-    while (false !== ($file = readdir($handle))) {
-        // Mengecek apakah file tersebut adalah gambar (dengan ekstensi yang diinginkan)
-        if ($file != '.' && $file != '..' && in_array(strtolower(pathinfo($file, PATHINFO_EXTENSION)), ['jpg', 'jpeg', 'png', 'gif'])) {
-            // Menampilkan gambar dengan tag <img>
-            echo '<img src="' . $folderPath . '/' . $file . '" alt="' . $file . '" style="max-width: 200px; margin: 10px;">';
-        }
-    }
-    // Menutup folder setelah selesai
-    closedir($handle);
-} else {
-    echo 'Folder tidak ditemukan atau tidak dapat diakses.';
-}
-
-?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Motor</title>
+</head>
+<body>
+    <h1>Daftar Motor</h1>
+    <form action="{{ route('motors.store') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <label for="noPlat">Nomor Plat:</label>
+        <input type="text" name="noPlat" id="noPlat" required>
+        <label for="gambar">Gambar:</label>
+        <input type="file" name="fotoMotor" id="fotoMotor" required>
+        <br><br>
+        <label for="jenisMotor">Jenis Motor</label>
+        <input type="text" name="jenisMotor" id="jenisMotor" required>
+        <br><br>
+        <label for="Harga">Harga</label>
+        <input type="number" name="Harga" id="Harga" required min="1">
+        <br><br>
+        <button type="submit">Tambah Motor</button>
+    </form>
+    <h2>List Motor</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>No Plat</th>
+                <th>Jenis Motor</th>
+                <th>Harga</th>
+                <th>Gambar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($motors as $motor)
+                <tr>
+                    <td>{{ $motor->kodeMotor }}</td>
+                    <td>{{ $motor->noPlat }}</td>
+                    <td>{{ $motor->jenisMotor}}</td>
+                    <td>{{ $motor->harga}}</td>
+                    <td>
+                        <img src="data:image/jpeg;base64,{{ base64_encode($motor->fotoMotor) }}" alt="Gambar Motor" style="width: 100px;">
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+</body>
+</html>
