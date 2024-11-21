@@ -26,7 +26,7 @@ Route :: get('/cekGambar',function(){
     return view('testGambar');
 });
 
-Route::post('/RegistrasiProses', [UserController::class, 'registerUser'])->name('registrasi.proses');
+Route::post('/RegistrasiProses', [UserController::class, 'registerUser']);
 
 Route::get('/Penyewaan',function(){
     return view('Penyewaan');

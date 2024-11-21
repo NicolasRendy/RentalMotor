@@ -11,6 +11,8 @@ class Motor extends Model
     protected $primaryKey = 'KodeMotor';
     protected $fillable = [
         'noPlat',
+        'jenisMotor',
+        'harga',
         'fotoMotor'];
         
 }
