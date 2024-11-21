@@ -44,8 +44,8 @@ Route::get('/Riwayat',function(){
     return view('Riwayat');
 });
 
+Route::get('/Pembayaran', function(){
+    return view('Pembayaran');
+});
 
-<<<<<<< HEAD
-=======
 Route::get('/layanan', [MotorController::class, 'getAllMotor'])->name('layanan.index');
->>>>>>> b61886cd613ac0acbca14cfb482222f1ad0c2536

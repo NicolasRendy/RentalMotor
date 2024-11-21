@@ -63,9 +63,10 @@
 <body>
     <header>
         <nav>
-            <a href="/-" class="nav-button">Help</a>
-            <a href="/daftarPenyewaan" class="nav-button">Daftar Motor</a>
+            <a href="/Help" class="nav-button">Help</a>
+            <a href="/daftarPenyewaan" class="nav-button">Sewa</a>
             <a href="/Riwayat" class="nav-button active">Riwayat Penyewaan</a>
+            <a href="/Pembayaran" class="nav-button"> Pembayaran</a>
             <a href="/login" class="nav-button">Log Out</a>
         </nav>
     </header>
@@ -79,7 +80,6 @@
                         <p><strong>Alamat:</strong> NULL</p>
                         <p><strong>Jenis Motor:</strong> NULL</p>
                         <p><strong>No. Plat:</strong> NULL</p>
-                        <p><strong>Tanggal Penyewaan:</strong> NULL</p>
                         <p><strong>Tanggal Pengambilan:</strong> NULL</p>
                         <p><strong>Tanggal Pengembalian:</strong> NULL</p>
                         <p><strong>Harga:</strong> NULL</p><br>
