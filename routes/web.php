@@ -54,3 +54,4 @@ Route::get('/layanan', [MotorController::class, 'getAllMotor'])->name('layanan.i
 // test
 Route::get('/motors', [MotorController::class, 'index'])->name('motors.index');
 Route::post('/motors', [MotorController::class, 'store'])->name('motors.store');
+// 2r3ko3noj4of
