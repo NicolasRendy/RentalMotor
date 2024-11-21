@@ -12,30 +12,30 @@ class MotorController extends Controller
     {
         $motors = Motor::all();
 
-        foreach ($motors as $motor) {
-            // Mengonversi gambar BLOB menjadi format base64
-            if ($motor->fotoMotor) {
-                $motor->fotoMotorBase64 = base64_encode($motor->fotoMotor);
-            } else {
-                $motor->fotoMotorBase64 = null;
-            }
-        }
+        return view('/layanan', compact('motors'));
+
+        // foreach ($motors as $motor) {
+        //     // Mengonversi gambar BLOB menjadi format base64
+        //     if ($motor->fotoMotor) {
+        //         $motor->fotoMotorBase64 = base64_encode($motor->fotoMotor);
+        //     } else {
+        //         $motor->fotoMotorBase64 = null;
+        //     }
+        // }
 
         return view('layanan', compact('motors'));
     }
 
     public function store(Request $request)
     {
-        $request->validate([
-            'noPlat' => 'required|string|max:255',
-            'fotoMotor' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-        ]);
 
         // Upload gambar ke database
         $gambar = $request->file('fotoMotor')->getContent();
 
         Motor::create([
             'noPlat' => $request->noPlat,
+            'jenisMotor' => $request->jenisMotor,
+            'harga' => $request->Harga,
             'fotoMotor' => $gambar,
         ]);
 

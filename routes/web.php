@@ -26,7 +26,7 @@ Route :: get('/cekGambar',function(){
     return view('testGambar');
 });
 
-Route::post('/RegistrasiProses', [UserController::class, 'registerUser'])->name('registrasi.proses');
+Route::post('/RegistrasiProses', [UserController::class, 'registerUser']);
 
 Route::get('/Penyewaan',function(){
     return view('Penyewaan');
@@ -43,6 +43,7 @@ Route::get('/Help',function(){
 Route::get('/Riwayat',function(){
     return view('Riwayat');
 });
+
 
 Route::get('/layanan', [MotorController::class, 'getAllMotor'])->name('layanan.index');
 
