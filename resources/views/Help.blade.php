@@ -46,10 +46,11 @@
 </head>
 <body>
   <header>
-      <nav>
+         <nav>
             <a href="/Help" class="nav-button">Help</a>
-            <a href="/daftarPenyewaan" class="nav-button">Daftar Motor</a>
-            <a href="/Riwayat" class="nav-button active">Riwayat Penyewaan</a>
+            <a href="/daftarPenyewaan" class="nav-button active">Daftar Motor</a>
+            <a href="/Riwayat" class="nav-button ">Riwayat Penyewaan</a>
+            <a href="/Pembayaran" class="nav-button ">Pembayaran</a>
             <a href="/login" class="nav-button">Log Out</a>
         </nav>
   </header>

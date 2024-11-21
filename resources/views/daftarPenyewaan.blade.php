@@ -51,6 +51,7 @@
             <a href="/Help" class="nav-button">Help</a>
             <a href="/daftarPenyewaan" class="nav-button active">Daftar Motor</a>
             <a href="/Riwayat" class="nav-button ">Riwayat Penyewaan</a>
+            <a href="/Pembayaran" class="nav-button ">Pembayaran</a>
             <a href="/login" class="nav-button">Log Out</a>
         </nav>
     </header>
@@ -63,7 +64,7 @@
             </p><br>
             <div class="motor-list">
                 <div class="motor-item">
-                <img src="{{ asset('images/Vario 125.jpg') }}" alt="Honda ">
+                <img src="{{ asset('images/Honda Vario 125.jpg') }}" alt="Honda ">
                     <h3>Honda Vario 125</h3>
                     <p>Harga: Rp 85,000/hari</p>
                     <button onclick="pilihMotor('honda')">Pesan Motor</button>
