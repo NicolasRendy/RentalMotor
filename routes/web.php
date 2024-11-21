@@ -36,13 +36,13 @@ Route::get('/daftarPenyewaan',function(){
     return view('daftarPenyewaan');
 });
 
-Route::get('/Help',function(){
-    return view('Help');
-});
-
 Route::get('/Riwayat',function(){
     return view('Riwayat');
 });
 
 Route::get('/layanan', [MotorController::class, 'getAllMotor'])->name('layanan.index');
+>>>>>>> b61886cd613ac0acbca14cfb482222f1ad0c2536
 
+// test
+Route::get('/motors', [MotorController::class, 'index'])->name('motors.index');
+Route::post('/motors', [MotorController::class, 'store'])->name('motors.store');

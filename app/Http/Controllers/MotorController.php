@@ -23,4 +23,28 @@ class MotorController extends Controller
 
         return view('layanan', compact('motors'));
     }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'noPlat' => 'required|string|max:255',
+            'fotoMotor' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        ]);
+
+        // Upload gambar ke database
+        $gambar = $request->file('fotoMotor')->getContent();
+
+        Motor::create([
+            'noPlat' => $request->noPlat,
+            'fotoMotor' => $gambar,
+        ]);
+
+        return redirect()->route('motors.index')->with('success', 'Data berhasil ditambahkan');
+    }
+
+    public function index()
+    {
+        $motors = Motor::all();
+        return view('testGambar', compact('motors'));
+    }
 }
