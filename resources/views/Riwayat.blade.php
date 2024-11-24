@@ -97,7 +97,7 @@
             <a href="/daftarPenyewaan" class="nav-button ">Daftar Motor</a>
             <a href="/Riwayat" class="nav-button active">Riwayat Penyewaan</a>
             <a href="/Pembayaran" class="nav-button ">Pembayaran</a>
-            <a href="/login" class="nav-button">Log Out</a>
+            <a href="/logout" class="nav-button">Log Out</a>
         </nav>
     </header>
     <div class="penyewaan-container">

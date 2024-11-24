@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HalamanController;
 use App\Http\Controllers\MotorController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -32,9 +33,13 @@ Route::get('/Penyewaan',function(){
     return view('Penyewaan');
 });
 
-Route::get('/daftarPenyewaan',function(){
-    return view('daftarPenyewaan');
-});
+// Route::get('/daftarPenyewaan',function(){
+//     return view('daftarPenyewaan');
+// });
+
+Route::get('/daftarPenyewaan', [HalamanController::class, 'daftarPenyewaan'])->middleware('auth');
+
+Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
 
 Route::get('/Help',function(){
     return view('Help');
@@ -51,7 +56,10 @@ Route::get('/Pembayaran',function(){
 
 Route::get('/layanan', [MotorController::class, 'getAllMotor'])->name('layanan.index');
 
+Route::get('/daftarPenyewaan',function(){
+    return view('daftarPenyewaan');
+})->middleware('auth');
+
 // test
 Route::get('/motors', [MotorController::class, 'index'])->name('motors.index');
 Route::post('/motors', [MotorController::class, 'store'])->name('motors.store');
-// 2r3ko3noj4of

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\User;
@@ -30,24 +31,40 @@ class UserController extends Controller
 
         // Redirect or return a success view
         return redirect('/daftarPenyewaan');
-
     }
 
     public function loginProses(Request $request)
     {
-        $data = [
-            'email' => $request->input('email'),
-            'password' => $request->input('password')
-        ];
-    
-        if(Auth::attempt($data,true)){
-            session()->regenerate();
-            return redirect('/daftarPenyewaan');
+        // Validasi input
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+
+        // Data kredensial
+        $credentials = $request->only('email', 'password');
+
+        // Coba login
+        if (Auth::attempt($credentials, true)) {
+            // Regenerasi session
+            $request->session()->regenerate();
+
+            // Redirect ke halaman daftar penyewaan
+            // return redirect('/daftarPenyewaan');
+            return redirect()->intended('/daftarPenyewaan');
         }
 
-        return redirect()->back()->with('gagal',"Email Atau Password Anda Salah!");
+        // Login gagal
+        return redirect()->back()->withErrors([
+            'email' => 'Email atau password salah.',
+        ]);
     }
 
-    
-    
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/login');
+    }
 }

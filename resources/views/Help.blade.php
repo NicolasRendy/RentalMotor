@@ -51,7 +51,7 @@
             <a href="/daftarPenyewaan" class="nav-button active">Daftar Motor</a>
             <a href="/Riwayat" class="nav-button ">Riwayat Penyewaan</a>
             <a href="/Pembayaran" class="nav-button ">Pembayaran</a>
-            <a href="/login" class="nav-button">Log Out</a>
+            <a href="/logout" class="nav-button">Log Out</a>
         </nav>
   </header>
 

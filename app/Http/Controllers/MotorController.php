@@ -13,17 +13,6 @@ class MotorController extends Controller
         $motors = Motor::all();
 
         return view('/layanan', compact('motors'));
-
-        // foreach ($motors as $motor) {
-        //     // Mengonversi gambar BLOB menjadi format base64
-        //     if ($motor->fotoMotor) {
-        //         $motor->fotoMotorBase64 = base64_encode($motor->fotoMotor);
-        //     } else {
-        //         $motor->fotoMotorBase64 = null;
-        //     }
-        // }
-
-        return view('layanan', compact('motors'));
     }
 
     public function store(Request $request)

@@ -52,13 +52,17 @@
             <a href="/daftarPenyewaan" class="nav-button active">Daftar Motor</a>
             <a href="/Riwayat" class="nav-button ">Riwayat Penyewaan</a>
             <a href="/Pembayaran" class="nav-button ">Pembayaran</a>
-            <a href="/login" class="nav-button">Log Out</a>
-        </nav>
+            <form action="/logout" method="POST" style="display: inline;">
+                @csrf
+                <button type="submit" class="nav-button" style="background: none; border: none; color: inherit; cursor: pointer;">
+                    Log Out
+             </button>
+    </form>
     </header>
     <form action="/Penyewaan">
     <div class="container">
         <section>
-            <h2 align=center>Selamat Datang di Rental Tunas Baru</h2>
+            <h2 align=center>Selamat Datang di Rental Tunas Baru </h2>
             <p align=center> Kami Menyediakan berbagai jenis kendaraan dengan standar dan kualitas terjamin,
                 selalu dalam kondisi terbaik melalui perawatan rutin , sehingga anda dapat berkendara tanpa kekhawatiran. Tungggu apalagi, ayo pesan sekarang
             </p><br>
