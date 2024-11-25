@@ -44,13 +44,18 @@ class UserController extends Controller
         // Data kredensial
         $credentials = $request->only('email', 'password');
 
-        // Coba login
         if (Auth::attempt($credentials, true)) {
             // Regenerasi session
             $request->session()->regenerate();
 
-            // Redirect ke halaman daftar penyewaan
-            // return redirect('/daftarPenyewaan');
+            $user = Auth::user(); // Mendapatkan data user yang login
+            session([
+                'id_pelanggan' => $user->id_pelanggan,
+                'nama' => $user->nama,
+                'email' => $user->email,
+                'alamat' => $user->alamat
+            ]);
+
             return redirect()->intended('/daftarPenyewaan');
         }
 

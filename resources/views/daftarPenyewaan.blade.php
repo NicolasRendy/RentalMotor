@@ -56,76 +56,30 @@
                 @csrf
                 <button type="submit" class="nav-button" style="background: none; border: none; color: inherit; cursor: pointer;">
                     Log Out
-             </button>
-    </form>
+                </button>
+            </form>
     </header>
-    <form action="/Penyewaan">
     <div class="container">
         <section>
-            <h2 align=center>Selamat Datang di Rental Tunas Baru </h2>
+            <h2 align=center>Unit Kami </h2>
             <p align=center> Kami Menyediakan berbagai jenis kendaraan dengan standar dan kualitas terjamin,
-                selalu dalam kondisi terbaik melalui perawatan rutin , sehingga anda dapat berkendara tanpa kekhawatiran. Tungggu apalagi, ayo pesan sekarang
+                selalu dalam kondisi terbaik melalui perawatan rutin , sehingga anda dapat berkendara tanpa kekhawatiran
             </p><br>
             <div class="motor-list">
+                @foreach ($motors as $item)
                 <div class="motor-item">
-                <img src="{{ asset('images/Honda Vario 125.jpg') }}" alt="Honda ">
-                    <h3>Honda Vario 125</h3>
-                    <p>Harga: Rp 85,000/hari</p>
-                    <button onclick="pilihMotor('honda')">Pesan Motor</button>
+                    <img src="data:image/jpeg;base64,{{ base64_encode($item->fotoMotor) }}" alt="{{ $item->jenisMotor }}" width: 100px;>
+                    <h3>{{ $item->jenisMotor }}</h3>
+                    <p>Harga: Rp {{ number_format($item->harga, 0, ',', '.') }}/hari</p>
+                    <a href="{{ route('penyewaan.create', ['motor_id' => $item->kodeMotor]) }}" class="btn-pesan">
+                    <button type="button">Pesan Motor</button>
+                </a>
                 </div>
-                <div class="motor-item">
-                    <img src="{{ asset('images/Honda Beat FI.jpg') }}" alt="Honda">
-                    <h3>Honda Beat FI</h3>
-                    <p>Harga: Rp 75,000/hari</p>
-                    <button onclick="pilihMotor('honda')">Pesan Motor</button>
-                </div>
-                <div class="motor-item">
-                    <img src="{{ asset('images/Honda genio.png') }}" alt="Honda">
-                    <h3>Honda Genio</h3>
-                    <p>Harga: Rp 75,000/hari</p>
-                    <button onclick="pilihMotor('honda')">Pesan Motor</button>
-                </div>
-                <div class="motor-item">
-                    <img src="{{ asset('images/Honda Scoopy.jpg') }}" alt="Honda">
-                    <h3>Honda Scoopy</h3>
-                    <p>Harga: Rp 85,000/hari</p>
-                    <button onclick="pilihMotor('honda')">Pesan Motor</button>
-                </div>
-                <div class="motor-item">
-                    <img src="{{ asset('images/Honda Vario 150.png') }}" alt="Honda">
-                    <h3>Honda Vario 150</h3>
-                    <p>Harga: Rp 85,000/hari</p>
-                    <button onclick="pilihMotor('honda')">Pesan Motor</button>
-                </div>
-                <div class="motor-item">
-                    <img src="{{ asset('images/Yamaha Mio.png') }}" alt="Yamaha">
-                    <h3>Yamaha Mio</h3>
-                    <p>Harga: Rp 100,000/hari</p>
-                    <button onclick="pilihMotor('yamaha')">Pesan Motor</button>
-                </div>
-                <div class="motor-item">
-                    <img src="{{ asset('images/Yamaha Gear 125.png') }}" alt="Yamaha">
-                    <h3>Yamaha Gear 125</h3>
-                    <p>Harga: Rp 85,000/hari</p>
-                    <button onclick="pilihMotor('yamaha')">Pesan Motor</button>
-                </div>
-                <div class="motor-item">
-                    <img src="{{ asset('images/Suzuki Burgman.jpg') }}" alt="Suzuki">
-                    <h3>Suzuki Burgman</h3>
-                    <p>Harga: Rp 85,000/hari</p>
-                    <button onclick="pilihMotor('suzuki')">Pesan Motor</button>
-                </div>
-                <div class="motor-item">
-                    <img src="{{ asset('images/Honda Skuter.jpg') }}" alt="Honda">
-                    <h3>Honda Skuter</h3>
-                    <p>Harga: Rp 75,000/hari</p>
-                    <button onclick="pilihMotor('honda')">Pesan Motor</button>
-                </div>
+                @endforeach
             </div>
         </section>
     </div>
-    </form>
- <br><br><br><br><br><br>
+    <br><br><br><br><br><br>
     <footer>
         <p>Hubungi kami: 081-233-689 | email@TunasBaru.com</p>
     </footer>

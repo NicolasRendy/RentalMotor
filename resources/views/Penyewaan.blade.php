@@ -102,6 +102,45 @@
             width: 100%;
             height: 45px;
         }
+
+        input[type="date"] {
+            appearance: none;
+            /* Hapus tampilan default browser */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+
+            padding: 10px;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            color: #333;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            width: 100%;
+            max-width: 300px;
+            box-sizing: border-box;
+        }
+
+        /* Hover dan fokus untuk efek interaksi */
+        input[type="date"]:hover {
+            border-color: #aaa;
+        }
+
+        input[type="date"]:focus {
+            outline: none;
+            border-color: #5b9bd5;
+            box-shadow: 0 0 5px rgba(91, 155, 213, 0.5);
+        }
+
+        /* Tambahkan ikon kalender (opsional) */
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+
+            background-size: 20px 20px;
+            border: none;
+            opacity: 0.7;
+        }
     </style>
 </head>
 
@@ -113,23 +152,102 @@
     <div class="penyewaan-container">
         <div class="penyewaan-card">
             <div class="motor-image">
-                <img src="motor-image.png" alt="Motor" />
+                <img src="data:image/jpeg;base64,{{ base64_encode($motor->fotoMotor) }}" alt="{{ $motor->jenisMotor }}">
             </div>
             <div class="info">
-                <p><strong>Nama:</strong> NULL</p>
-                <p><strong>Alamat:</strong> NULL</p>
-                <p><strong>Jenis Motor:</strong> NULL</p>
-                <p><strong>No. Plat:</strong> NULL</p>
-                <p><strong>Tanggal Pengambilan:</strong> NULL</p>
-                <p><strong>Tanggal Pengambilan:</strong> NULL</p>
-                <p><strong>Harga:</strong> NULL</p>
-                <button class="kirim-button">Kirim</button>
+                <p><strong>Nama:</strong> {{ session('nama') }}</p>
+                <p><strong>Alamat:</strong> {{ session('alamat') }}</p>
+                <p><strong>Jenis Motor:</strong> {{ $motor->jenisMotor }}</p>
+                <p><strong>No. Plat:</strong> {{ $motor->noPlat }}</p>
+                <form method="POST" action="">
+                    @csrf
+                    <label for="tanggal_pengambilan"><strong>Tanggal Pengambilan:</strong></label>
+                    <input type="date" name="tanggal_pengambilan" id="tanggal_pengambilan" required>
+                    <span id="error-tanggal-pengambilan" style="color: red; font-size: 0.9em; display: none;">Tanggal pengambilan tidak boleh kurang dari hari ini.</span>
+                    <br>
+                    <label for="tanggal_pengembalian"><strong>Tanggal Pengembalian:</strong></label>
+                    <input type="date" name="tanggal_pengembalian" id="tanggal_pengembalian" required>
+                    <span id="error-tanggal" style="color: red; font-size: 0.9em; display: none;">Tanggal pengembalian tidak boleh kurang dari tanggal pengambilan.</span>
+                    <br>
+                    <p><strong>Harga per Hari:</strong> Rp. <span id="harga_per_hari">{{ $motor->harga }}</span></p>
+
+                    <p><strong>Total Harga:</strong> Rp. <span id="total_harga">0</span></p>
+
+                    <input type="hidden" name="harga_per_hari" value="{{ $motor->hargaPerHari }}">
+
+                    <button type="submit" class="kirim-button">Kirim</button>
+                </form>
             </div>
         </div>
     </div>
+
     <footer>
         <p>Hubungi kami: 081-233-689 | email@TunasBaru.com</p>
     </footer>
+
+    <script>
+        // Ambil elemen input tanggal, total harga, dan elemen error
+        const tanggalPengambilan = document.getElementById('tanggal_pengambilan');
+        const tanggalPengembalian = document.getElementById('tanggal_pengembalian');
+        const totalHargaEl = document.getElementById('total_harga');
+        const hargaPerHari = parseInt(document.getElementById('harga_per_hari').textContent);
+        const errorTanggal = document.getElementById('error-tanggal');
+        const errorTanggalPengambilan = document.getElementById('error-tanggal-pengambilan');
+
+        // Fungsi untuk validasi tanggal pengambilan
+        function validasiTanggalPengambilan() {
+            const tglPengambilan = new Date(tanggalPengambilan.value);
+            const hariIni = new Date();
+            hariIni.setHours(0, 0, 0, 0); // Set waktu ke 00:00 untuk perbandingan yang tepat
+
+            if (tglPengambilan && tglPengambilan < hariIni) {
+                // Tampilkan pesan error
+                errorTanggalPengambilan.style.display = "block";
+
+                // Hapus nilai pada field tanggal pengambilan
+                tanggalPengambilan.value = "";
+            } else {
+                // Sembunyikan pesan error jika valid
+                errorTanggalPengambilan.style.display = "none";
+            }
+        }
+
+        // Fungsi untuk menghitung total harga
+        function hitungTotalHarga() {
+            validasiTanggalPengambilan(); // Validasi tanggal pengambilan
+
+            const tglPengambilan = new Date(tanggalPengambilan.value);
+            const tglPengembalian = new Date(tanggalPengembalian.value);
+
+            if (tglPengambilan && tglPengembalian) {
+                if (tglPengembalian < tglPengambilan) {
+                    // Tampilkan pesan error untuk tanggal pengembalian
+                    errorTanggal.style.display = "block";
+
+                    // Hapus nilai pada field tanggal pengembalian
+                    tanggalPengembalian.value = "";
+
+                    // Reset total harga
+                    totalHargaEl.textContent = "0";
+                } else {
+                    // Sembunyikan pesan error untuk tanggal pengembalian
+                    errorTanggal.style.display = "none";
+
+                    // Hitung selisih hari antara tanggal pengambilan dan pengembalian
+                    const diffTime = Math.abs(tglPengembalian - tglPengambilan);
+                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1; // Ditambah 1 untuk inklusif
+
+                    // Hitung total harga
+                    const totalHarga = diffDays * hargaPerHari;
+                    totalHargaEl.textContent = totalHarga.toLocaleString(); // Format total harga dengan pemisah ribuan
+                }
+            }
+        }
+
+        // Menambahkan event listener untuk perubahan pada input tanggal
+        tanggalPengambilan.addEventListener('change', hitungTotalHarga);
+        tanggalPengembalian.addEventListener('change', hitungTotalHarga);
+    </script>
 </body>
 
 </html>
