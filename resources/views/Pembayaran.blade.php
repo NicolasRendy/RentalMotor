@@ -8,11 +8,19 @@
     <title>Riwayat Penyewaan</title>
     <style>
         .container {
-            width: 60%;
+            width: 500%;
             margin: 50px auto;
             display: flex;
             justify-content: center;
             overflow: hidden;
+            background-color: #ffffff;
+            /* Latar belakang putih untuk kotak */
+            border-radius: 8px;
+            /* Sudut kotak yang melengkung */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Bayangan halus di sekitar kotak */
+            padding: 20px;
+            width: 450px;
         }
 
         .title {
@@ -159,53 +167,53 @@
                 </div>
             </div>
             <div class="pay-button-container">
-            <button class="pay-button" onclick="handlePayment()">Bayar Sekarang</button>
-        </div>
-    </section>
-</div>
-<script>
-    function toggleBankOptions(show) {
-        const bankOptions = document.getElementById("bankOptions");
-        bankOptions.style.display = show ? "block" : "none";
-    }
-
-    function handlePayment() {
-        const paymentMethod = document.querySelector('input[name="payment"]:checked');
-        const bankOption = document.querySelector('input[name="bank"]:checked');
-
-        if (!paymentMethod) {
-            alert("Pilih metode pembayaran terlebih dahulu!");
-            return;
+                <button class="pay-button" onclick="handlePayment()">Bayar Sekarang</button>
+            </div>
+        </section>
+    </div>
+    <script>
+        function toggleBankOptions(show) {
+            const bankOptions = document.getElementById("bankOptions");
+            bankOptions.style.display = show ? "block" : "none";
         }
 
-        if (paymentMethod.value === "cod") {
-            window.location.href = "/Riwayat"; // Arahkan ke halaman/class sewa
-        } else if (paymentMethod.value === "transfer") {
-            if (!bankOption) {
-                alert("Pilih bank terlebih dahulu!");
+        function handlePayment() {
+            const paymentMethod = document.querySelector('input[name="payment"]:checked');
+            const bankOption = document.querySelector('input[name="bank"]:checked');
+
+            if (!paymentMethod) {
+                alert("Pilih metode pembayaran terlebih dahulu!");
                 return;
             }
 
-            switch (bankOption.value) {
-                case "MANDIRI":
-                    window.location.href = "/transferMandiri"; // Arahkan ke halaman/class untuk bank Mandiri
-                    break;
-                case "BNI":
-                    window.location.href = "/transferBNI"; // Arahkan ke halaman/class untuk bank BRI
-                    break;
-                case "BRIVA":
-                    window.location.href = "/transferBriva"; // Arahkan ke halaman/class untuk bank BRIVA
-                    break;
-                default:
-                    alert("Bank yang dipilih tidak valid!");
+            if (paymentMethod.value === "cod") {
+                window.location.href = "/Riwayat"; // Arahkan ke halaman/class sewa
+            } else if (paymentMethod.value === "transfer") {
+                if (!bankOption) {
+                    alert("Pilih bank terlebih dahulu!");
+                    return;
+                }
+
+                switch (bankOption.value) {
+                    case "MANDIRI":
+                        window.location.href = "/transferMandiri"; // Arahkan ke halaman/class untuk bank Mandiri
+                        break;
+                    case "BNI":
+                        window.location.href = "/transferBNI"; // Arahkan ke halaman/class untuk bank BRI
+                        break;
+                    case "BRIVA":
+                        window.location.href = "/transferBriva"; // Arahkan ke halaman/class untuk bank BRIVA
+                        break;
+                    default:
+                        alert("Bank yang dipilih tidak valid!");
+                }
             }
         }
-    }
-</script>
+    </script><br><br>
     <footer>
         <p>Hubungi kami: 081-233-689 | email@TunasBaru.com</p>
     </footer>
-    
+
 </body>
 
 </html>
