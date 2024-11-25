@@ -159,21 +159,25 @@
                 <p><strong>Alamat:</strong> {{ session('alamat') }}</p>
                 <p><strong>Jenis Motor:</strong> {{ $motor->jenisMotor }}</p>
                 <p><strong>No. Plat:</strong> {{ $motor->noPlat }}</p>
-                <form method="POST" action="">
+                <form method="POST" action="/menyewaProses">
                     @csrf
                     <label for="tanggal_pengambilan"><strong>Tanggal Pengambilan:</strong></label>
                     <input type="date" name="tanggal_pengambilan" id="tanggal_pengambilan" required>
                     <span id="error-tanggal-pengambilan" style="color: red; font-size: 0.9em; display: none;">Tanggal pengambilan tidak boleh kurang dari hari ini.</span>
                     <br>
+
                     <label for="tanggal_pengembalian"><strong>Tanggal Pengembalian:</strong></label>
                     <input type="date" name="tanggal_pengembalian" id="tanggal_pengembalian" required>
                     <span id="error-tanggal" style="color: red; font-size: 0.9em; display: none;">Tanggal pengembalian tidak boleh kurang dari tanggal pengambilan.</span>
                     <br>
+
                     <p><strong>Harga per Hari:</strong> Rp. <span id="harga_per_hari">{{ $motor->harga }}</span></p>
 
                     <p><strong>Total Harga:</strong> Rp. <span id="total_harga">0</span></p>
 
-                    <input type="hidden" name="harga_per_hari" value="{{ $motor->hargaPerHari }}">
+                    <input type="hidden" name="kodeMotor" value="{{ $motor->kodeMotor }}">
+                    <input type="hidden" name="id_Pelanggan" value="{{ session('id_pelanggan') }}">
+                    <input type="hidden" name="total_harga" id="total_harga_input">
 
                     <button type="submit" class="kirim-button">Kirim</button>
                 </form>
@@ -213,6 +217,7 @@
         }
 
         // Fungsi untuk menghitung total harga
+        // Fungsi untuk menghitung total harga
         function hitungTotalHarga() {
             validasiTanggalPengambilan(); // Validasi tanggal pengambilan
 
@@ -240,9 +245,13 @@
                     // Hitung total harga
                     const totalHarga = diffDays * hargaPerHari;
                     totalHargaEl.textContent = totalHarga.toLocaleString(); // Format total harga dengan pemisah ribuan
+
+                    // Update nilai total_harga pada input hidden
+                    document.getElementById('total_harga_input').value = totalHarga;
                 }
             }
         }
+
 
         // Menambahkan event listener untuk perubahan pada input tanggal
         tanggalPengambilan.addEventListener('change', hitungTotalHarga);
