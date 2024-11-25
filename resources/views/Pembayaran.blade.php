@@ -16,8 +16,10 @@
         }
 
         .title {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            align-items: center;
         }
 
         .total-price {
@@ -62,6 +64,17 @@
             margin-right: 10px;
         }
 
+        .bank-options {
+            display: none;
+            margin-top: 15px;
+        }
+
+        .bank-options label {
+            display: block;
+            margin: 5px 0;
+            font-size: 0.9rem;
+        }
+
         .btn-transfer {
             background-color: #6b4acc;
             color: white;
@@ -85,14 +98,26 @@
             margin: 5px 0;
         }
 
-        .title {
-            font-size: 30px;
-            font-weight: bold;
+        .pay-button-container {
             text-align: center;
-            align-items: center;
+            margin-top: 20px;
+        }
+
+        .pay-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .pay-button:hover {
+            background-color: #45a049;
         }
     </style>
-
 </head>
 
 <body>
@@ -120,19 +145,67 @@
             <div class="payment-methods">
                 <h3>Pilih metode pembayaran</h3>
                 <div class="payment-option">
-                    <input type="radio" id="cod" name="payment" value="cod">
+                    <input type="radio" id="cod" name="payment" value="cod" onclick="toggleBankOptions(false)">
                     <label for="cod">Bayar di Tempat</label>
                 </div>
                 <div class="payment-option">
-                    <input type="radio" id="transfer" name="payment" value="transfer">
-                    <label for="transfer">Transfer akun virtual</label>
+                    <input type="radio" id="transfer" name="payment" value="transfer" onclick="toggleBankOptions(true)">
+                    <label for="transfer">Transfer</label>
+                </div>
+                <div class="bank-options" id="bankOptions">
+                    <label><input type="radio" name="bank" value="MANDIRI"> Mandiri</label>
+                    <label><input type="radio" name="bank" value="BNI"> BNI</label>
+                    <label><input type="radio" name="bank" value="BRIVA"> BRIVA</label>
                 </div>
             </div>
-        </section>
-    </div>
+            <div class="pay-button-container">
+            <button class="pay-button" onclick="handlePayment()">Bayar Sekarang</button>
+        </div>
+    </section>
+</div>
+<script>
+    function toggleBankOptions(show) {
+        const bankOptions = document.getElementById("bankOptions");
+        bankOptions.style.display = show ? "block" : "none";
+    }
+
+    function handlePayment() {
+        const paymentMethod = document.querySelector('input[name="payment"]:checked');
+        const bankOption = document.querySelector('input[name="bank"]:checked');
+
+        if (!paymentMethod) {
+            alert("Pilih metode pembayaran terlebih dahulu!");
+            return;
+        }
+
+        if (paymentMethod.value === "cod") {
+            window.location.href = "/Riwayat"; // Arahkan ke halaman/class sewa
+        } else if (paymentMethod.value === "transfer") {
+            if (!bankOption) {
+                alert("Pilih bank terlebih dahulu!");
+                return;
+            }
+
+            switch (bankOption.value) {
+                case "MANDIRI":
+                    window.location.href = "/transferMandiri"; // Arahkan ke halaman/class untuk bank Mandiri
+                    break;
+                case "BNI":
+                    window.location.href = "/transferBNI"; // Arahkan ke halaman/class untuk bank BRI
+                    break;
+                case "BRIVA":
+                    window.location.href = "/transferBriva"; // Arahkan ke halaman/class untuk bank BRIVA
+                    break;
+                default:
+                    alert("Bank yang dipilih tidak valid!");
+            }
+        }
+    }
+</script>
     <footer>
         <p>Hubungi kami: 081-233-689 | email@TunasBaru.com</p>
     </footer>
+    
 </body>
 
 </html>
