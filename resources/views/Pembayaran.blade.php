@@ -10,10 +10,8 @@
         .container {
             width: 60%;
             margin: 50px auto;
-            /* Menambahkan margin atas */
             display: flex;
             justify-content: center;
-            /* Menempatkan elemen di tengah secara horizontal */
             overflow: hidden;
         }
 
@@ -29,19 +27,39 @@
             display: inline-block;
             margin-bottom: 20px;
             font-weight: bold;
+            width: 270px;
+            height: 20px;
         }
 
-        .payment-method {
+        .payment-methods {
             margin-top: 15px;
         }
 
-        .payment-method button {
-            padding: 10px 20px;
-            margin: 10px 5px;
-            border: none;
-            border-radius: 5px;
+        .payment-option {
+            display: flex;
+            align-items: center;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            padding: 10px 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            transition: transform 0.2s, box-shadow 0.3s;
+        }
+
+        .payment-option:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .payment-option label {
             font-size: 1rem;
-            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .payment-option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
         }
 
         .btn-transfer {
@@ -68,7 +86,7 @@
         }
 
         .title {
-            font-size: 20px;
+            font-size: 30px;
             font-weight: bold;
             text-align: center;
             align-items: center;
@@ -99,15 +117,19 @@
                 <p><strong>Tanggal Pengembalian:</strong> 21/10/2024</p>
             </div><br>
             <div class="total-price">Total Pesanan: Rp 75.000</div>
-            <div class="payment-method">
-                <div class="title">Pilih metode pembayaran anda</div>
-                <button class="btn-transfer">Transfer</button>
-                <button class="btn-cash">Cash</button>
+            <div class="payment-methods">
+                <h3>Pilih metode pembayaran</h3>
+                <div class="payment-option">
+                    <input type="radio" id="cod" name="payment" value="cod">
+                    <label for="cod">Bayar di Tempat</label>
+                </div>
+                <div class="payment-option">
+                    <input type="radio" id="transfer" name="payment" value="transfer">
+                    <label for="transfer">Transfer akun virtual</label>
+                </div>
             </div>
         </section>
     </div>
-    </form>
-    <br><br><br><br><br><br>
     <footer>
         <p>Hubungi kami: 081-233-689 | email@TunasBaru.com</p>
     </footer>
