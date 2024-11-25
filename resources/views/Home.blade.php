@@ -93,13 +93,11 @@
 
             <h3 id="cara-pembayaran">3. Bagaimana cara melakukan pembayaran?</h3>
             <p>Pembayaran sewa motor dapat dilakukan melalui transfer bank atau metode pembayaran yang tersedia di sistem kami. Pastikan Anda melakukan konfirmasi pembayaran setelah transfer dilakukan.</p>
-
             <h3 id="motor-tersedia">4. Apa saja motor yang tersedia untuk disewa?</h3>
             <p>Kami memiliki berbagai pilihan motor, mulai dari motor sport, matic, hingga motor gede. Anda dapat melihat pilihan motor yang tersedia di halaman layanan kami.</p>
 
             <h3 id="kontak">5. Bagaimana cara menghubungi kami?</h3>
             <p>Anda dapat menghubungi kami melalui nomor telepon: 081-233-689 atau email kami di email@TunasBaru.com. Tim kami siap membantu Anda dengan pertanyaan atau masalah yang Anda hadapi.</p>
-
         </div>
     </div>
 </body>

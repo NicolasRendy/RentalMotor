@@ -56,7 +56,7 @@
 
         .details {
             margin-top: 20px;
-            background-color: #eef3f7;
+            background-color: #e0e0ff;
             padding: 15px;
             border-radius: 8px;
             text-align: left;
@@ -65,6 +65,13 @@
 
         .details p {
             margin: 5px 0;
+        }
+
+        .title {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            align-items: center;
         }
     </style>
 
@@ -83,12 +90,6 @@
     <div class="container">
         <section>
             <div class="title">Bayar Sekarang</div>
-            <div class="total-price">Total Harga: RP 75.000</div>
-            <a href></a>
-            <div class="payment-method">
-                <button class="btn-transfer">Transfer</button>
-                <button class="btn-cash">Cash</button>
-            </div>
             <div class="details">
                 <p><strong>Nama:</strong> Della</p>
                 <p><strong>Alamat:</strong> Gedongkiwo</p>
@@ -96,6 +97,12 @@
                 <p><strong>No. Plat:</strong> AB 1111 UU</p>
                 <p><strong>Tanggal Penyewaan:</strong> 20/10/2024</p>
                 <p><strong>Tanggal Pengembalian:</strong> 21/10/2024</p>
+            </div><br>
+            <div class="total-price">Total Pesanan: Rp 75.000</div>
+            <div class="payment-method">
+                <div class="title">Pilih metode pembayaran anda</div>
+                <button class="btn-transfer">Transfer</button>
+                <button class="btn-cash">Cash</button>
             </div>
         </section>
     </div>

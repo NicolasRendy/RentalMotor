@@ -61,8 +61,8 @@
 
         .motor-image img {
             border-radius: 10px;
-            width: 150px;
-            height: auto;
+            width: 300px;
+            height: 230px;
             border: 3px solid #e0e0e0;
         }
 
@@ -108,16 +108,16 @@
 <body>
     <header class="header">
         <button class="back-button">&lt;</button>
-        <h1>Penyewaan</h1>
+        <h1>Detail Penyewaan</h1>
     </header>
     <div class="penyewaan-container">
         <div class="penyewaan-card">
             <div class="motor-image">
-                <img src="motor-image.png" alt="Motor" />
+                <img src="images/Honda Vario 125.jpg" alt="Motor" />
             </div>
             <div class="info">
-                <p><strong>Nama:</strong> NULL</p>
-                <p><strong>Alamat:</strong> NULL</p>
+                <p><strong>Nama Pelanggan:</strong> NULL</p>
+                <p><strong>Alamat Pelanggan:</strong> NULL</p>
                 <p><strong>Jenis Motor:</strong> NULL</p>
                 <p><strong>No. Plat:</strong> NULL</p>
                 <p><strong>Tanggal Pengambilan:</strong> NULL</p>
