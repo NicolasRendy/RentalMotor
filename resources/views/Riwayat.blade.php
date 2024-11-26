@@ -29,10 +29,11 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            height: 41vh;
+            height: 50vh;
             width: 50vh;
             margin: 2px auto 0;
-            /* Memberi jarak atas 70px dari navbar */
+            margin-top: 40px; /* jarak dengan Navbar  */
+           
         }
 
         .penyewaan-card {
@@ -64,6 +65,7 @@
             padding: 10px 0;
             /* Tambahkan padding untuk estetika */
         }
+
     </style>
 </head>
 <body>
@@ -77,8 +79,9 @@
         </nav>
     </header><br>
     <form action="/daftarPenyewaan">
-    <div class="nota-header">Nota Penyewaan</div>
+    
     <div class="penyewaan-container">
+    <div class="nota-header">Nota Penyewaan</div>
         <div class="penyewaan-card">
             <div class="info">
                 <p><strong>Nama Pelanggan:</strong> NULL</p>

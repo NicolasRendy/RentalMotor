@@ -104,17 +104,18 @@
     <div class="pembayaran-container">
         <div class="info-pembayaran">
             <p><strong>Total Pesanan:</strong> RP 75.000</p><br>
-            <p><strong>Bank:</strong> BRI</p>
-            <p><strong>No. Rekening:</strong> 128 0822 5883 5309</p>
+            <p><strong>Bank:</strong> Mandiri</p>
+            <p><strong>No. Rekening:</strong>896 082258835309</p>
             <p>Proses verifikasi kurang dari 5 menit setelah pembayaran berhasil.</p>
             <p>Bayar pesanan ke Virtual Account di atas sebelum membuat pesanan kembali dengan Virtual Account agar nomor tetap sama.</p>
-            <p><strong>Hanya menerima dari Bank BRI</strong></p>
+            <p><strong>Hanya menerima dari Bank Mandiri</strong></p>
         </div>
         <div class="info-pembayaran">
             <p><strong>Petunjuk Transfer mBanking:</strong></p>
             <ol>
-                <li>Masuk ke menu Mobile Banking BRI. Kemudian, pilih Pembayaran > BRIVA.</li>
-                <li>Masukkan Nomor BRIVA <strong>128 0822 5883 5309</strong>.</li>
+                <li>Login ke mBanking-mu. Pilih Payment, kemudian pilih e-Commerce.
+                </li>
+                <li>Masukan nomor Virtual Account <strong>896 082258835309</strong>.</li>
                 <li>Masukkan PIN Anda kemudian pilih Send. Apabila pesan konfirmasi untuk transaksi menggunakan SMS muncul, pilih OK. Status transaksi akan dikirimkan melalui SMS dan dapat digunakan sebagai bukti pembayaran.</li>
             </ol>
         </div>
