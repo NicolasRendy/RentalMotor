@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/styleInclude.css') }}">
-    <title>Bantuan</title>
+    <title>Help</title>
     <style>
         .p {
             margin-top: 20px;
@@ -30,11 +30,10 @@
 <body>
     <header>
         <nav>
-            <a href="/Help" class="nav-button">Bantuan</a>
-            <a href="/daftarPenyewaan" class="nav-button active">Daftar Motor</a>
-            <a href="/Riwayat" class="nav-button">Riwayat Penyewaan</a>
-            <a href="/Pembayaran" class="nav-button">Pembayaran</a>
-            <a href="/login" class="nav-button">Keluar</a>
+            <a href="/Help" class="nav-button active">Help</a>
+            <a href="/layanan" class="nav-button">Melihat Layanan</a>
+            <a href="/login" class="nav-button">Login</a>
+            <a href="/Registrasi" class="nav-button">Registrasi</a>
         </nav>
     </header>
 
