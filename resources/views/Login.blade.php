@@ -70,6 +70,22 @@
     </header>
     <div class="container">
         <h2>Login Rental Motor</h2>
+
+        <!-- Tampilkan Pesan Error -->
+        @if ($errors->any())
+        <div style="color: red; margin-bottom: 10px;">
+            @foreach ($errors->all() as $error)
+            <p>{{ $error }}</p>
+            @endforeach
+        </div>
+        @endif
+
+        <!-- Tampilkan Flash Message -->
+        @if (session('gagal'))
+        <div style="color: red; margin-bottom: 10px;">
+            <p>{{ session('gagal') }}</p>
+        </div>
+        @endif
         <form action="/LoginCek" method="POST">
             @csrf
             <label for="email">Email*:</label>

@@ -86,8 +86,8 @@
             <a href="/Help" class="nav-button">Help</a>
             <a href="/daftarPenyewaan" class="nav-button">Sewa</a>
             <a href="/Riwayat" class="nav-button active">Riwayat Penyewaan</a>
-            <a href="/Pembayaran" class="nav-button "> Pembayaran</a>
-            <a href="/login" class="nav-button">Log Out</a>
+            <a href="/Pembayaran" class="nav-button ">Pembayaran</a>
+            <a href="/logout" class="nav-button">Log Out</a>
         </nav>
     </header><br>
     <form action="/daftarPenyewaan">
