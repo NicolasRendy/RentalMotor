@@ -197,9 +197,6 @@
                     case "MANDIRI":
                         window.location.href = "/transferMandiri"; // Arahkan ke halaman/class untuk bank Mandiri
                         break;
-                    case "BNI":
-                        window.location.href = "/transferBNI"; // Arahkan ke halaman/class untuk bank BRI
-                        break;
                     case "BRIVA":
                         window.location.href = "/transferBriva"; // Arahkan ke halaman/class untuk bank BRIVA
                         break;

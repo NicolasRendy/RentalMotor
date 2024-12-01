@@ -47,6 +47,13 @@ Route::get('/daftarPenyewaan', function () {
     return view('daftarPenyewaan');
 });
 
+Route::get('/kelola', function () {
+    return view('kelola');
+});
+
+Route::get('/edit', function () {
+    return view('edit');
+});
 
 // Route::get('/daftarPenyewaan',function(){
 //     return view('daftarPenyewaan');
