@@ -123,7 +123,8 @@
         }
 
         .pay-button:hover {
-            background-color: #45a049;
+            background: #583bb5;
+        }
         }
     </style>
 </head>

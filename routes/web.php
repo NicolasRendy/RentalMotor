@@ -54,6 +54,9 @@ Route::get('/kelola', function () {
 Route::get('/edit', function () {
     return view('edit');
 });
+Route::get('/tambah', function () {
+    return view('tambah');
+});
 
 // Route::get('/daftarPenyewaan',function(){
 //     return view('daftarPenyewaan');

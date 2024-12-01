@@ -103,6 +103,7 @@
             height: 45px;
         }
 
+        input[type="text"],
         input[type="date"] {
             appearance: none;
             /* Hapus tampilan default browser */
@@ -123,10 +124,12 @@
         }
 
         /* Hover dan fokus untuk efek interaksi */
+        input[type="text"]:hover,
         input[type="date"]:hover {
             border-color: #aaa;
         }
 
+        input[type="text"]:focus,
         input[type="date"]:focus {
             outline: none;
             border-color: #5b9bd5;
@@ -136,7 +139,6 @@
         /* Tambahkan ikon kalender (opsional) */
         input[type="date"]::-webkit-calendar-picker-indicator {
             cursor: pointer;
-
             background-size: 20px 20px;
             border: none;
             opacity: 0.7;
@@ -152,16 +154,14 @@
     <div class="penyewaan-container">
         <div class="penyewaan-card">
             <div class="motor-image">
-
-            <img src="{{ asset('images/home.jpg') }}" width: 100px;>
+                <img src="{{ asset('images/home.jpg') }}" width="300" height="230">
             </div>
             <div class="info">
-                <p><strong>Jenis Motor:</strong> Null></p>
-                <p><strong>No. Plat:</strong>Null</p>
-                <p><strong>Harga:</strong> Null</p>
-                <button type="submit" class="kirim-button">Batal</button>
+                <p><strong>Jenis Motor:</strong> <input type="text" placeholder="Masukkan jenis motor"></p>
+                <p><strong>No. Plat:</strong> <input type="text" placeholder="Masukkan nomor plat"></p>
+                <p><strong>Harga:</strong> <input type="text" placeholder="Masukkan harga"></p>
+                <button type="button" class="kirim-button">Batal</button>
                 <button type="submit" class="kirim-button">Simpan</button>
-                </form>
             </div>
         </div>
     </div>
@@ -169,7 +169,6 @@
     <footer>
         <p>Hubungi kami: 081-233-689 | email@TunasBaru.com</p>
     </footer>
-    </script>
 </body>
 
 </html>

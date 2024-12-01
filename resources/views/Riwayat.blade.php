@@ -77,6 +77,10 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
+        .kirim-button:hover {
+            background: #583bb5;
+        }
     </style>
 </head>
 
