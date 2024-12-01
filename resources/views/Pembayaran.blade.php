@@ -162,7 +162,6 @@
                 </div>
                 <div class="bank-options" id="bankOptions">
                     <label><input type="radio" name="bank" value="MANDIRI"> Mandiri</label>
-                    <label><input type="radio" name="bank" value="BNI"> BNI</label>
                     <label><input type="radio" name="bank" value="BRIVA"> BRIVA</label>
                 </div>
             </div>

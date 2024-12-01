@@ -35,10 +35,6 @@ Route::get('/Penyewaan', function () {
     return view('Penyewaan');
 });
 
-Route::get('/transferBNI', function () {
-    return view('transferBNI');
-});
-
 Route::get('/transferBriva', function () {
     return view('transferBriva');
 });

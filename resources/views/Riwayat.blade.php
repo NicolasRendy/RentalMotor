@@ -29,7 +29,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            height: 55vh;
+            height: 60vh;
             width: 50vh;
             margin: 2px auto 0;
             margin-top: 40px;
@@ -100,7 +100,6 @@
                     <p><strong>Alamat Pelanggan:</strong> NULL</p>
                     <p><strong>Jenis Motor:</strong> NULL</p>
                     <p><strong>No. Plat:</strong> NULL</p>
-                    <p><strong>Tanggal Penyewaan:</strong> NULL</p>
                     <p><strong>Tanggal Pengambilan:</strong> NULL</p>
                     <p><strong>Tanggal Pengembalian:</strong> NULL</p>
                     <p><strong>Harga:</strong> NULL</p><br>
