@@ -84,7 +84,7 @@ Route::post('/menyewaProses', [MenyewaController::class, 'store']);
 
 // Route::get('/daftarPenyewaan',function(){
 //     return view('daftarPenyewaan');
-// })->middleware('auth'); // test bracnh
+// })->middleware('auth'); 
 
 // test
 Route::get('/motors', [MotorController::class, 'index'])->name('motors.index');
