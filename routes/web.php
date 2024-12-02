@@ -95,3 +95,4 @@ Route::post('/menyewaProses', [MenyewaController::class, 'store']);
 // test
 Route::get('/motors', [MotorController::class, 'index'])->name('motors.index');
 Route::post('/motors', [MotorController::class, 'store'])->name('motors.store');
+Route::delete('/motors/{kodeMotor}', [MotorController::class, 'destroy'])->name('motors.destroy');

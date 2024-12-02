@@ -36,4 +36,12 @@ class MotorController extends Controller
         $motors = Motor::all();
         return view('testGambar', compact('motors'));
     }
+
+    public function destroy($kodeMotor)
+    {
+        $motor = Motor::findOrFail($kodeMotor);
+        $motor->delete();
+
+        return redirect()->route('motors.index')->with('success', 'Motor berhasil dihapus.');
+    }
 }
