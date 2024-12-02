@@ -90,7 +90,7 @@
         .form-section {
             display: flex;
             align-items: center;
-            gap: 40px; # edit posisi letak inpunya
+            gap: 40px; 
         }
 
 
@@ -137,7 +137,7 @@
 </head>
 <body>
     <div class="header">
-        <a href="#">&#9664;</a>
+        <a href="">&#9664;</a>
         <span>Tambah Motor Baru</span>
     </div>
 
