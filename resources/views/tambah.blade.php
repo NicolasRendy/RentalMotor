@@ -158,7 +158,7 @@
                     <input type="text" id="no-plat" placeholder="Masukkan nomor plat">
                 </div>
                 <div class="form-row">
-                    <label for="harga">Harga</label>
+                    <label for="harga">Harga</label>    
                     <input type="text" id="harga" placeholder="Masukkan harga">
                 </div>
             </div>
