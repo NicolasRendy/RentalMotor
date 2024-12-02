@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/styleInclude.css') }}">
     <title>Layanan Rental Motor Tunas Baru</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         .container {
             width: 80%;
@@ -205,6 +206,55 @@
             background-color: #5cb85c;
             color: white;
         }
+
+        .btn-trash{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        background-color: #3498db;
+        /* Warna biru */
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        }
+
+        .btn-trash:hover {
+            background-color: #2980b9;
+            /* Warna biru lebih gelap saat hover */
+        }
+
+        .btn-trash i {
+            font-size: 18px;
+        }
+
+        .btn-trash {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            background-color: #3498db;
+            /* Warna biru */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: -10px; /* Sesuaikan nilainya sesuai kebutuhan */
+        /* Atau gunakan transform untuk lebih presisi */
+        transform: translateY(-10px);
+        }
+
+        .btn-trash:hover {
+            background-color: #2980b9;
+            /* Warna biru lebih gelap saat hover */
+        }
+
+        .btn-trash i {
+            font-size: 18px;
+        }
     </style>
 
 </head>
@@ -216,7 +266,8 @@
     </header>
     <div class="container">
         <section>
-            <button class="add-button">+ Tambah Motor</button>
+            <button class="add-button" onclick="window.location.href='/tambah';">+ Tambah Motor</button>
+
             <div class="motor-list">
                 <div class="motor-item">
                     <img src="{{ asset('images/home.jpg') }}" width: 100px;>
@@ -224,10 +275,13 @@
                     <p>Harga: Rp 500/hari</p>
                     <div class="actions">
                         <div id="kelola">
-                            <button id="editButton" class="edit-button">Edit Motor</button>
+                            <button class="btn-trash edit-button" id="editButton">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn-trash">
+                                <i class="fas fa-trash"></i>
+                            </button>
                         </div>
-
-
                     </div>
                 </div>
                 <div class="motor-item">
@@ -263,6 +317,22 @@
                     </div>
                 </div>
             </div>
+
+            <div id="editModal" class="modal">
+                <div class="modal-content">
+                    <h2>Edit Deskripsi Motor</h2>
+                    <div class="motor-image">
+                        <img src="{{ asset('images/home.jpg') }}" alt="Motor">
+                    </div>
+                    <p><strong>Jenis Motor:</strong> <input type="text" placeholder="Masukkan jenis motor"></p>
+                    <p><strong>No. Plat:</strong> <input type="text" placeholder="Masukkan nomor plat"></p>
+                    <p><strong>Harga:</strong> <input type="text" placeholder="Masukkan harga"></p>
+                    <div class="modal-footer">
+                        <button type="button" class="cancel-button" id="closeModal">Batal</button>
+                        <button type="submit" class="save-button">Simpan</button>
+                    </div>
+                </div>
+            </div>
         </section>
     </div>
     <br><br><br><br><br><br>
@@ -270,7 +340,6 @@
         <p>Hubungi kami: 081-233-689 | email@TunasBaru.com</p>
     </footer>
     <script>
-        // Ambil elemen
         const kelola = document.getElementById('kelola');
         const editButton = document.getElementById('editButton');
         const editModal = document.getElementById('editModal');
