@@ -112,7 +112,99 @@
             color: white;
         }
 
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
 
+        #kelola {
+            padding: 20px;
+        }
+
+        .blur {
+            filter: blur(5px);
+            transition: filter 0.3s;
+        }
+
+        .edit-button {
+            background-color: #3d80e4;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .edit-button:hover {
+            background-color: #2c66b8;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .motor-image img {
+            width: 100%;
+            height: auto;
+            max-height: 200px;
+            border-radius: 10px;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 5px 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .modal-footer {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .modal-footer button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        .modal-footer .cancel-button {
+            background-color: #d9534f;
+            color: white;
+        }
+
+        .modal-footer .save-button {
+            background-color: #5cb85c;
+            color: white;
+        }
     </style>
 
 </head>
@@ -131,11 +223,11 @@
                     <h3>Meongg</h3>
                     <p>Harga: Rp 500/hari</p>
                     <div class="actions">
-                    <a href="/:)" class="btn-pesan">
-                        <button type="button">Edit</button>
-                       
-                    </a>
-                        
+                        <div id="kelola">
+                            <button id="editButton" class="edit-button">Edit Motor</button>
+                        </div>
+
+
                     </div>
                 </div>
                 <div class="motor-item">
@@ -154,6 +246,22 @@
                         <button type="button">Pesan Motor</button>
                     </a>
                 </div>
+                <!-- Modal Edit -->
+                <div id="editModal" class="modal">
+                    <div class="modal-content">
+                        <h2>Edit Deskripsi Motor</h2>
+                        <div class="motor-image">
+                            <img src="{{ asset('images/home.jpg') }}" alt="Motor">
+                        </div>
+                        <p><strong>Jenis Motor:</strong> <input type="text" placeholder="Masukkan jenis motor"></p>
+                        <p><strong>No. Plat:</strong> <input type="text" placeholder="Masukkan nomor plat"></p>
+                        <p><strong>Harga:</strong> <input type="text" placeholder="Masukkan harga"></p>
+                        <div class="modal-footer">
+                            <button type="button" class="cancel-button" id="closeModal">Batal</button>
+                            <button type="submit" class="save-button">Simpan</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
@@ -161,6 +269,25 @@
     <footer>
         <p>Hubungi kami: 081-233-689 | email@TunasBaru.com</p>
     </footer>
+    <script>
+        // Ambil elemen
+        const kelola = document.getElementById('kelola');
+        const editButton = document.getElementById('editButton');
+        const editModal = document.getElementById('editModal');
+        const closeModal = document.getElementById('closeModal');
+
+        // Tampilkan modal saat tombol Edit diklik
+        editButton.addEventListener('click', () => {
+            kelola.classList.add('blur'); // Tambahkan efek blur
+            editModal.classList.add('show'); // Tampilkan modal
+        });
+
+        // Tutup modal saat tombol Batal diklik
+        closeModal.addEventListener('click', () => {
+            kelola.classList.remove('blur'); // Hilangkan efek blur
+            editModal.classList.remove('show'); // Sembunyikan modal
+        });
+    </script>
 </body>
 
 </html>
