@@ -207,18 +207,18 @@
             color: white;
         }
 
-        .btn-trash{
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 10px;
-        background-color: #3498db;
-        /* Warna biru */
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
+        .btn-trash {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            background-color: #3498db;
+            /* Warna biru */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
         .btn-trash:hover {
@@ -242,9 +242,10 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            margin-top: -10px; /* Sesuaikan nilainya sesuai kebutuhan */
-        /* Atau gunakan transform untuk lebih presisi */
-        transform: translateY(-10px);
+            margin-top: -10px;
+            /* Sesuaikan nilainya sesuai kebutuhan */
+            /* Atau gunakan transform untuk lebih presisi */
+            transform: translateY(-10px);
         }
 
         .btn-trash:hover {
@@ -269,10 +270,11 @@
             <button class="add-button" onclick="window.location.href='/tambah';">+ Tambah Motor</button>
 
             <div class="motor-list">
+                @foreach ($motors as $item)
                 <div class="motor-item">
-                    <img src="{{ asset('images/home.jpg') }}" width: 100px;>
-                    <h3>Meongg</h3>
-                    <p>Harga: Rp 500/hari</p>
+                    <img src="data:image/jpeg;base64,{{ base64_encode($item->fotoMotor) }}" alt="{{ $item->jenisMotor }}" width: 100px;>
+                    <h3>{{ $item->jenisMotor }}</h3>
+                    <p>Harga: Rp {{ number_format($item->harga, 0, ',', '.') }}/hari</p>
                     <div class="actions">
                         <div id="kelola">
                             <button class="btn-trash edit-button" id="editButton">
@@ -284,22 +286,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="motor-item">
-                    <img src="{{ asset('images/home.jpg') }}" width: 100px;>
-                    <h3>Meongg</h3>
-                    <p>Harga: Rp 500/hari</p>
-                    <a href="/:)" class="btn-pesan">
-                        <button type="button">Pesan Motor</button>
-                    </a>
-                </div>
-                <div class="motor-item">
-                    <img src="{{ asset('images/home.jpg') }}" width: 100px;>
-                    <h3>Meongg</h3>
-                    <p>Harga: Rp 500/hari</p>
-                    <a href="/:)" class="btn-pesan">
-                        <button type="button">Pesan Motor</button>
-                    </a>
-                </div>
+                @endforeach
             </div>
 
             <div id="editModal" class="modal">
