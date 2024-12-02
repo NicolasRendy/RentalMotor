@@ -61,8 +61,8 @@
 
         .motor-image img {
             border-radius: 10px;
-            width: 150px;
-            height: auto;
+            width: 300px;
+            height: 230px;
             border: 3px solid #e0e0e0;
         }
 
@@ -147,11 +147,12 @@
 <body>
     <header class="header">
         <button class="back-button">&lt;</button>
-        <h1>Penyewaan</h1>
+        <h1>Detail Penyewaan</h1>
     </header>
     <div class="penyewaan-container">
         <div class="penyewaan-card">
             <div class="motor-image">
+
                 <img src="data:image/jpeg;base64,{{ base64_encode($motor->fotoMotor) }}" alt="{{ $motor->jenisMotor }}">
             </div>
             <div class="info">

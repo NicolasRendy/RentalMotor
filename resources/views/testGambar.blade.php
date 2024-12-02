@@ -3,130 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pemesanan Motor</title>
+    <title>Interactive Landing Page</title>
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #f9f9f9;
+            background: linear-gradient(to bottom, #6a11cb, #2575fc);
+            color: white;
+            overflow-x: hidden;
         }
         header {
-            background: #007bff;
-            color: white;
-            padding: 20px;
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(0, 0, 0, 0.5);
         }
         header h1 {
             margin: 0;
         }
-        .container {
-            max-width: 800px;
-            margin: 30px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
         }
-        .form-group {
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .hero h2 {
+            font-size: 3rem;
+            margin: 0 0 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        .hero button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            color: white;
+            background-color: #6a11cb;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .hero button:hover {
+            background-color: #2575fc;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .features {
+            display: flex;
+            justify-content: space-around;
+            padding: 50px;
+            background: white;
+            color: black;
+            text-align: center;
+        }
+        .feature {
+            max-width: 300px;
+        }
+        .feature img {
+            width: 100px;
+            height: 100px;
             margin-bottom: 20px;
         }
-        .form-group label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
+        .feature h3 {
+            margin-bottom: 10px;
         }
-        .form-group input, 
-        .form-group select, 
-        .form-group button {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .form-group button {
-            background: #007bff;
+        footer {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            text-align: center;
             color: white;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .form-group button:hover {
-            background: #0056b3;
-        }
-        .summary {
-            margin-top: 20px;
-            padding: 10px;
-            background: #e9ecef;
-            border-radius: 4px;
-        }
-        .error {
-            color: red;
-            margin-top: 5px;
-            display: none;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Pemesanan Motor</h1>
-        <p>Lengkapi detail pemesanan Anda di bawah ini</p>
+        <h1>InteractivePage</h1>
+        <nav>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
     </header>
-    <div class="container">
-        <form id="orderForm">
-            <div class="form-group">
-                <label for="motor">Pilih Motor</label>
-                <select id="motor" name="motor" required>
-                    <option value="" disabled selected>-- Pilih Motor --</option>
-                    <option value="Honda Beat">Honda Beat</option>
-                    <option value="Yamaha NMAX">Yamaha NMAX</option>
-                    <option value="Suzuki Nex II">Suzuki Nex II</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="tanggalSewa">Tanggal Sewa</label>
-                <input type="date" id="tanggalSewa" name="tanggalSewa" required>
-            </div>
-            <div class="form-group">
-                <label for="tanggalKembali">Tanggal Kembali</label>
-                <input type="date" id="tanggalKembali" name="tanggalKembali" required>
-                <span class="error" id="dateError">Tanggal kembali harus lebih besar dari tanggal sewa</span>
-            </div>
-            <div class="form-group">
-                <button type="submit">Pesan Motor</button>
-            </div>
-        </form>
-        <div class="summary" id="summary" style="display: none;">
-            <h3>Rincian Pemesanan</h3>
-            <p id="motorName"></p>
-            <p id="rentalPeriod"></p>
-        </div>
+    <div class="hero">
+        <h2>Welcome to the Future</h2>
+        <p>Your journey to innovation starts here.</p>
+        <button id="learnMore">Learn More</button>
     </div>
-
+    <section class="features" id="features">
+        <div class="feature">
+            <img src="https://via.placeholder.com/100" alt="Feature 1">
+            <h3>Fast</h3>
+            <p>Experience blazing fast performance like never before.</p>
+        </div>
+        <div class="feature">
+            <img src="https://via.placeholder.com/100" alt="Feature 2">
+            <h3>Secure</h3>
+            <p>Your data is safe with state-of-the-art security.</p>
+        </div>
+        <div class="feature">
+            <img src="https://via.placeholder.com/100" alt="Feature 3">
+            <h3>Scalable</h3>
+            <p>Grow your business without limits.</p>
+        </div>
+    </section>
+    <footer id="contact">
+        <p>&copy; 2024 InteractivePage. All rights reserved.</p>
+    </footer>
     <script>
-        const form = document.getElementById('orderForm');
-        const summary = document.getElementById('summary');
-        const motorName = document.getElementById('motorName');
-        const rentalPeriod = document.getElementById('rentalPeriod');
-        const dateError = document.getElementById('dateError');
-
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            const motor = document.getElementById('motor').value;
-            const tanggalSewa = document.getElementById('tanggalSewa').value;
-            const tanggalKembali = document.getElementById('tanggalKembali').value;
-
-            if (new Date(tanggalSewa) >= new Date(tanggalKembali)) {
-                dateError.style.display = 'block';
-                return;
-            } else {
-                dateError.style.display = 'none';
-            }
-
-            // Menampilkan ringkasan pemesanan
-            motorName.textContent = `Motor: ${motor}`;
-            rentalPeriod.textContent = `Periode Sewa: ${tanggalSewa} hingga ${tanggalKembali}`;
-            summary.style.display = 'block';
+        document.getElementById('learnMore').addEventListener('click', function () {
+            alert('Thank you for your interest! Scroll down to see more.');
+            window.scrollTo({ top: document.getElementById('features').offsetTop, behavior: 'smooth' });
         });
     </script>
 </body>

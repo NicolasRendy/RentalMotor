@@ -10,27 +10,53 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function() {
+Route::get('/home', function () {
     return view('Home');
 });
 
-Route:: get('/login', function() {
+Route::get('/login', function () {
     return view('login');
 });
 
 Route::post('/LoginCek', [UserController::class, 'loginProses']);
 
-Route:: get('/Registrasi', function() {
+Route::get('/Registrasi', function () {
     return view('Registrasi');
 });
 
-Route :: get('/cekGambar',function(){
+Route::get('/cekGambar', function () {
     return view('testGambar');
 });
 
 Route::post('/RegistrasiProses', [UserController::class, 'registerUser']);
 
 
+Route::get('/Penyewaan', function () {
+    return view('Penyewaan');
+});
+
+Route::get('/transferBriva', function () {
+    return view('transferBriva');
+});
+
+Route::get('/transferMandiri', function () {
+    return view('transferMandiri');
+});
+
+Route::get('/daftarPenyewaan', function () {
+    return view('daftarPenyewaan');
+});
+
+Route::get('/kelola', function () {
+    return view('kelola');
+});
+
+Route::get('/edit', function () {
+    return view('edit');
+});
+Route::get('/tambah', function () {
+    return view('tambah');
+});
 
 // Route::get('/daftarPenyewaan',function(){
 //     return view('daftarPenyewaan');
@@ -40,15 +66,16 @@ Route::post('/RegistrasiProses', [UserController::class, 'registerUser']);
 
 Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
 
-Route::get('/Help',function(){
+
+Route::get('/Help', function () {
     return view('Help');
 });
 
-Route::get('/Riwayat',function(){
+Route::get('/Riwayat', function () {
     return view('Riwayat');
 });
 
-Route::get('/Pembayaran',function(){
+Route::get('/Pembayaran', function () {
     return view('Pembayaran');
 });
 
