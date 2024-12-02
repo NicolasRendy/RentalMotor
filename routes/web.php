@@ -83,6 +83,10 @@ Route::get('/input', function () {
     return view('input');
 });
 
+Route::get('/lihat', function () {
+    return view('lihat');
+});
+
 Route::get('/layanan', [MotorController::class, 'getAllMotor'])->name('layanan.index');
 
 Route::get('/daftarPenyewaan',[HalamanController::class,'daftarPenyewaan'])->middleware('auth');

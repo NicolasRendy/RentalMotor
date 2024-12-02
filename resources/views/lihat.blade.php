@@ -98,7 +98,7 @@
                     <h3>Meongg</h3>
                     <p>Harga: Rp 500/hari</p>
                     <a href="/:)" class="btn-pesan">
-                        <button type="button">Input Service</button>
+                        <button type="button">Lihat Jadwal Service</button>
                     </a>
                 </div>
                 <div class="motor-item">
@@ -106,7 +106,7 @@
                     <h3>Meongg</h3>
                     <p>Harga: Rp 500/hari</p>
                     <a href="/:)" class="btn-pesan">
-                        <button type="button">Input Service</button>
+                        <button type="button">Lihat Jadwal  Service</button>
                     </a>
                 </div>
             </div>
