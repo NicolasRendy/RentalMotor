@@ -35,10 +35,6 @@ Route::get('/Penyewaan', function () {
     return view('Penyewaan');
 });
 
-Route::get('/transferBNI', function () {
-    return view('transferBNI');
-});
-
 Route::get('/transferBriva', function () {
     return view('transferBriva');
 });
@@ -51,6 +47,16 @@ Route::get('/daftarPenyewaan', function () {
     return view('daftarPenyewaan');
 });
 
+Route::get('/kelola', function () {
+    return view('kelola');
+});
+
+Route::get('/edit', function () {
+    return view('edit');
+});
+Route::get('/tambah', function () {
+    return view('tambah');
+});
 
 // Route::get('/daftarPenyewaan',function(){
 //     return view('daftarPenyewaan');

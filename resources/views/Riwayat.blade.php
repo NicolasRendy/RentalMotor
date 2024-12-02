@@ -29,11 +29,12 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            height: 50vh;
+            height: 60vh;
             width: 50vh;
             margin: 2px auto 0;
-            margin-top: 40px; /* jarak dengan Navbar  */
-           
+            margin-top: 40px;
+            /* jarak dengan Navbar  */
+
         }
 
         .penyewaan-card {
@@ -66,8 +67,23 @@
             /* Tambahkan padding untuk estetika */
         }
 
+        .kirim-button {
+            display: block;
+            margin: 20px auto 0;
+            /* Pusatkan secara horizontal */
+            padding: 10px 20px;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .kirim-button:hover {
+            background: #583bb5;
+        }
     </style>
 </head>
+
 <body>
     <header>
         <nav>
@@ -79,23 +95,22 @@
         </nav>
     </header><br>
     <form action="/daftarPenyewaan">
-    
-    <div class="penyewaan-container">
-    <div class="nota-header">Nota Penyewaan</div>
-        <div class="penyewaan-card">
-            <div class="info">
-                <p><strong>Nama Pelanggan:</strong> NULL</p>
-                <p><strong>Alamat Pelanggan:</strong> NULL</p>
-                <p><strong>Jenis Motor:</strong> NULL</p>
-                <p><strong>No. Plat:</strong> NULL</p>
-                <p><strong>Tanggal Penyewaan:</strong> NULL</p>
-                <p><strong>Tanggal Pengambilan:</strong> NULL</p>
-                <p><strong>Tanggal Pengembalian:</strong> NULL</p>
-                <p><strong>Harga:</strong> NULL</p><br>
-                <button class="kirim-button">Oke</button>
+
+        <div class="penyewaan-container">
+            <div class="nota-header">Nota Penyewaan</div>
+            <div class="penyewaan-card">
+                <div class="info">
+                    <p><strong>Nama Pelanggan:</strong> NULL</p>
+                    <p><strong>Alamat Pelanggan:</strong> NULL</p>
+                    <p><strong>Jenis Motor:</strong> NULL</p>
+                    <p><strong>No. Plat:</strong> NULL</p>
+                    <p><strong>Tanggal Pengambilan:</strong> NULL</p>
+                    <p><strong>Tanggal Pengembalian:</strong> NULL</p>
+                    <p><strong>Harga:</strong> NULL</p><br>
+                    <button class="kirim-button">Oke</button>
+                </div>
             </div>
         </div>
-    </div>
     </form>
 
     </form>
@@ -104,4 +119,5 @@
         <p>Hubungi kami: 081-233-689 | email@TunasBaru.com</p>
     </footer>
 </body>
+
 </html>
