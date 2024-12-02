@@ -123,7 +123,8 @@
         }
 
         .pay-button:hover {
-            background-color: #45a049;
+            background: #583bb5;
+        }
         }
     </style>
 </head>
@@ -162,7 +163,6 @@
                 </div>
                 <div class="bank-options" id="bankOptions">
                     <label><input type="radio" name="bank" value="MANDIRI"> Mandiri</label>
-                    <label><input type="radio" name="bank" value="BNI"> BNI</label>
                     <label><input type="radio" name="bank" value="BRIVA"> BRIVA</label>
                 </div>
             </div>
@@ -197,9 +197,6 @@
                 switch (bankOption.value) {
                     case "MANDIRI":
                         window.location.href = "/transferMandiri"; // Arahkan ke halaman/class untuk bank Mandiri
-                        break;
-                    case "BNI":
-                        window.location.href = "/transferBNI"; // Arahkan ke halaman/class untuk bank BRI
                         break;
                     case "BRIVA":
                         window.location.href = "/transferBriva"; // Arahkan ke halaman/class untuk bank BRIVA
