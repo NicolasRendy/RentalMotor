@@ -18,4 +18,10 @@ class HalamanController extends Controller {
         $motor = Motor::findOrFail($motor_id);
         return view('Penyewaan', compact('motor'));
     }
+
+    public function kelola()
+    {
+        $motors = Motor::all();
+        return view('/kelola', compact('motors'));
+    }
 }

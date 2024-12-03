@@ -17,7 +17,7 @@ class MotorController extends Controller
 
     public function store(Request $request)
     {
-
+        
         // Upload gambar ke database
         $gambar = $request->file('fotoMotor')->getContent();
 
@@ -28,7 +28,7 @@ class MotorController extends Controller
             'fotoMotor' => $gambar,
         ]);
 
-        return redirect()->route('motors.index')->with('success', 'Data berhasil ditambahkan');
+        return redirect()->route('kelola');
     }
 
     public function index()

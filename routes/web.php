@@ -47,16 +47,21 @@ Route::get('/daftarPenyewaan', function () {
     return view('daftarPenyewaan');
 });
 
-Route::get('/kelola', function () {
-    return view('kelola');
-});
+
+Route::get('/kelola', [HalamanController::class,'kelola']);
+Route::get('/kelola', [HalamanController::class, 'kelola'])->name('kelola');
+
+
 
 Route::get('/edit', function () {
     return view('edit');
 });
+
 Route::get('/tambah', function () {
     return view('tambah');
 });
+
+Route::post('/TambahProses', [MotorController::class, 'store']);
 
 // Route::get('/daftarPenyewaan',function(){
 //     return view('daftarPenyewaan');
@@ -86,6 +91,9 @@ Route::get('/input', function () {
 Route::get('/lihat', function () {
     return view('lihat');
 });
+
+
+
 
 Route::get('/layanan', [MotorController::class, 'getAllMotor'])->name('layanan.index');
 

@@ -41,6 +41,14 @@
         button:hover {
             background: #583bb5;
         }
+
+        .btn-dipesan {
+            background-color: #ccc;
+            color: #666;
+            border: none;
+            padding: 10px 20px;
+            cursor: not-allowed;
+        }
     </style>
 
 </head>
@@ -56,24 +64,30 @@
     </header>
 
     <div class="container">
-            <section>
-                <h2 align=center>Unit Kami </h2>
-                <p align=center> Kami Menyediakan berbagai jenis kendaraan dengan standar dan kualitas terjamin,
-                    selalu dalam kondisi terbaik melalui perawatan rutin , sehingga anda dapat berkendara tanpa kekhawatiran
-                </p><br>
-                <div class="motor-list">
-                    @foreach ($motors as $item)
-                    <div class="motor-item">
-                            <img src="data:image/jpeg;base64,{{ base64_encode($item->fotoMotor) }}" alt="{{ $item->jenisMotor }}" width: 100px;>
-                        <h3>{{ $item->jenisMotor }}</h3>
-                        <p>Harga: Rp {{ number_format($item->harga, 0, ',', '.') }}/hari</p>
-                        <button>Pesan Motor</button>
-                    </div>
-                    @endforeach
+        <section>
+            <h2 align=center>Unit Kami </h2>
+            <p align=center> Kami Menyediakan berbagai jenis kendaraan dengan standar dan kualitas terjamin,
+                selalu dalam kondisi terbaik melalui perawatan rutin , sehingga anda dapat berkendara tanpa kekhawatiran
+            </p><br>
+            <div class="motor-list">
+                @foreach ($motors as $item)
+                <div class="motor-item">
+                    <img src="data:image/jpeg;base64,{{ base64_encode($item->fotoMotor) }}" alt="{{ $item->jenisMotor }}" width: 100px;>
+                    <h3>{{ $item->jenisMotor }}</h3>
+                    <p>Harga: Rp {{ number_format($item->harga, 0, ',', '.') }}/hari</p>
+                    @if ($item->status == 0)
+                    <a href="/login" class="btn-pesan">
+                        <button type="button">Pesan Motor</button>
+                    </a>
+                    @else
+                        <button type="button" class="btn-dipesan" disabled>Motor Dipesan</button>
+                    @endif
                 </div>
-            </section>
+                @endforeach
+            </div>
+        </section>
     </div>
-     
+
     <br><br><br><br><br><br>
     <footer>
         <p>Hubungi kami: 081-233-689 | email@TunasBaru.com</p>
