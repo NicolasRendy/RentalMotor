@@ -79,6 +79,13 @@ Route::get('/Pembayaran', function () {
     return view('Pembayaran');
 });
 
+Route::get('/input', function () {
+    return view('input');
+});
+
+Route::get('/lihat', function () {
+    return view('lihat');
+});
 
 Route::get('/layanan', [MotorController::class, 'getAllMotor'])->name('layanan.index');
 

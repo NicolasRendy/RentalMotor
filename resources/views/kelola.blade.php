@@ -165,7 +165,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 80%;
+            width: 370px;
             max-width: 600px;
         }
 
@@ -207,17 +207,18 @@
             color: white;
         }
 
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 10px;
-        background-color: #3498db;
-        /* Warna biru */
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
+        .btn-trash {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            background-color: #3498db;
+            /* Warna biru */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
         .btn-trash:hover {
@@ -241,9 +242,10 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            margin-top: -10px; /* Sesuaikan nilainya sesuai kebutuhan */
-        /* Atau gunakan transform untuk lebih presisi */
-        transform: translateY(-10px);
+            margin-top: -10px;
+            /* Sesuaikan nilainya sesuai kebutuhan */
+            /* Atau gunakan transform untuk lebih presisi */
+            transform: translateY(-10px);
         }
 
         .btn-trash:hover {
@@ -261,7 +263,15 @@
 <body>
     <header>
         <nav>
-            <a href="/kelola" class="nav-button">Kelola</a>
+            <a href="/kelola" class="nav-button active" >Kelola</a>
+            <div class="dropdown">
+                <a class="nav-button">Maintenance</a>
+                <div class="dropdown-content">
+                    <button onclick="window.location.href='/input'">Input Jadwal</button>
+                    <button onclick="window.location.href='/lihat'">Lihat Jadwal</button>
+                </div>
+            </div>
+        </nav>
     </header>
     <div class="container">
         <section>

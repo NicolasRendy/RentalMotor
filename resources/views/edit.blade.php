@@ -34,7 +34,7 @@
             color: white;
             text-align: left;
         }
-
+        
         .back-button {
             background: none;
             border: none;
