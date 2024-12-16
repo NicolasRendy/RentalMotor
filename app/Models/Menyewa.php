@@ -18,6 +18,4 @@ class menyewa extends Model
         'TotalHarga',
         'id_pelanggan',
         'kodeMotor'];
-
-
 }

@@ -63,6 +63,8 @@ Route::get('/tambah', function () {
 
 Route::post('/TambahProses', [MotorController::class, 'store']);
 
+Route::delete('/hapus/{kodeMotor}', [MotorController::class, 'destroy'])->name('motors.destroy');
+
 // Route::get('/daftarPenyewaan',function(){
 //     return view('daftarPenyewaan');
 // });
@@ -110,7 +112,7 @@ Route::post('/menyewaProses', [MenyewaController::class, 'store']);
 // test
 Route::get('/motors', [MotorController::class, 'index'])->name('motors.index');
 Route::post('/motors', [MotorController::class, 'store'])->name('motors.store');
-Route::delete('/motors/{kodeMotor}', [MotorController::class, 'destroy'])->name('motors.destroy');
+
 
 Route::get('/test',function(){
     return view('testProgram');

@@ -69,7 +69,7 @@
     </header>
     <div class="container">
         <section>
-            <h2 align=center>Unit Kami </h2>
+            <h2 align=center>Selamat datang {{ session('nama') }} ini adalah Unit terbaik Kami </h2>
             <p align=center> Kami Menyediakan berbagai jenis kendaraan dengan standar dan kualitas terjamin,
                 selalu dalam kondisi terbaik melalui perawatan rutin , sehingga anda dapat berkendara tanpa kekhawatiran
             </p><br>
