@@ -39,11 +39,11 @@ class MotorController extends Controller
 
     public function destroy($kodeMotor)
     {
-
-        dd($kodeMotor);
-        $motor = Motor::find($kodeMotor);
-        $motor->delete();
-
-        return redirect()->route('motors.index')->with('success', 'Motor berhasil dihapus.');
+        $motor = Motor::where('kodeMotor', $kodeMotor)->first();
+        if ($motor) {
+            $motor->delete(); // Menghapus data dari database
+            return redirect()->back()->with('success', 'Motor berhasil dihapus.');
+        }
+        return redirect()->back()->with('error', 'Motor tidak ditemukan.');
     }
 }

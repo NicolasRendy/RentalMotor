@@ -263,7 +263,7 @@
 <body>
     <header>
         <nav>
-            <a href="/kelola" class="nav-button active" >Kelola</a>
+            <a href="/kelola" class="nav-button active">Kelola</a>
             <div class="dropdown">
                 <a class="nav-button">Maintenance</a>
                 <div class="dropdown-content">
@@ -288,11 +288,16 @@
                             <button class="btn-trash edit-button" id="editButton">
                                 <i class="fas fa-edit"></i>
                             </button>
-                            <button class="btn-trash">
-                                <i class="fas fa-trash"></i>
-                            </button>
+                            <form action="{{ route('motors.destroy', $item->kodeMotor) }}" method="POST" style="display: inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn-trash" type="submit" onclick="return confirm('Apakah Anda yakin ingin menghapus motor ini?')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
                         </div>
                     </div>
+
                 </div>
                 @endforeach
             </div>
