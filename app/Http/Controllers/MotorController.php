@@ -39,7 +39,9 @@ class MotorController extends Controller
 
     public function destroy($kodeMotor)
     {
-        $motor = Motor::findOrFail($kodeMotor);
+
+        dd($kodeMotor);
+        $motor = Motor::find($kodeMotor);
         $motor->delete();
 
         return redirect()->route('motors.index')->with('success', 'Motor berhasil dihapus.');

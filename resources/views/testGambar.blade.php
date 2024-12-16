@@ -32,7 +32,6 @@
                         <!-- Form untuk hapus -->
                         <form action="{{ route('motors.destroy', $motor->kodeMotor) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus motor ini?');">
                             @csrf
-                            @method('DELETE')
                             <button type="submit" style="background-color: red; color: white; border: none; padding: 5px 10px; cursor: pointer;">Hapus</button>
                         </form>
                     </td>

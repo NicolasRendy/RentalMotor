@@ -1,3 +1,7 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="id">
 
@@ -194,10 +198,10 @@
                 <div><span>No. Plat:</span> AB 2023 HM</div>
             </div>
             <div class="input-group">
-                <label for="start-date">Mulai</label><br>
+                <label for="start-date">Service setiap </label><br>
                 <input type="date" id="start-date" value="2024-10-25">
             </div>
-            <p>Service tiap 1 bulan sekali</p>
+            <p>Service tiap 1 tahun sekali</p>
             <button class="button" onclick="closeModal()">Simpan</button>
         </div>
     </div>
