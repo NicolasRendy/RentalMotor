@@ -79,6 +79,7 @@
     <header>
         <nav>
             <a href="/kelola" class="nav-button">Kelola</a>
+            <a href="/Konfirmasi" class="nav-button">Konfirmasi</a>
             <div class="dropdown">
                 <a href="maintenance" class="nav-button">Maintenance</a>
                 <div class="dropdown-content">

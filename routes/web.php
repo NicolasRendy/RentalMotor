@@ -47,6 +47,10 @@ Route::get('/daftarPenyewaan', function () {
     return view('daftarPenyewaan');
 });
 
+Route::get('/Konfirmasi', function () {
+    return view('Konfirmasi');
+});
+
 Route::get('/kelola', function () {
     return view('kelola');
 });

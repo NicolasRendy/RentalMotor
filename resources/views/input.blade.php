@@ -103,12 +103,15 @@
         .modal-content {
             background-color: white;
             margin: 10% auto;
-            padding: 20px;
-            border-radius: 8px;
-            width: 300px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 25px;
+            border-radius: 10px;
+            /* Rounded corners */
+            width: 350px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            /* Deeper shadow */
             text-align: center;
             position: relative;
+            font-family: "Arial", sans-serif;
         }
 
         .modal-content .info {
@@ -118,7 +121,16 @@
 
         .modal-content .info span {
             display: inline-block;
-            width: 100px;
+            width: 120px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .modal-content h2 {
+            margin-bottom: 15px;
+            font-size: 22px;
+            color: #4a4a4a;
+            text-align: center;
         }
 
         .modal-content .input-group {
@@ -128,23 +140,48 @@
         .modal-content .input-group input {
             width: 100%;
             padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .modal-content p {
+            font-size: 14px;
+            color: #666;
         }
 
         .modal-content .button {
-            background-color: #ff9800;
+            background-color: #007bff;
+            /* More vibrant color */
             color: white;
             border: none;
             padding: 10px 20px;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
             font-size: 16px;
+            transition: background-color 0.3s ease;
         }
 
         .modal-content .button:hover {
             background-color: #e68900;
+        }
+
+        .modal-content .close-button {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 18px;
+            color: #888;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .modal-content .close-button:hover {
+            color: #555;
         }
     </style>
 </head>
@@ -153,6 +190,7 @@
     <header>
         <nav>
             <a href="/kelola" class="nav-button">Kelola</a>
+            <a href="/Konfirmasi" class="nav-button">Konfirmasi</a>
             <div class="dropdown">
                 <a href="maintenance" class="nav-button">Maintenance</a>
                 <div class="dropdown-content">
@@ -190,27 +228,31 @@
     <div class="modal" id="modal">
         <div class="modal-content">
             <div class="info">
+                <h2>Input Jadwal Service</h2>
                 <div><span>Jenis Motor:</span> Honda Beat Street</div>
                 <div><span>No. Plat:</span> AB 2023 HM</div>
             </div>
             <div class="input-group">
-                <label for="start-date">Mulai</label><br>
-                <input type="date" id="start-date" value="2024-10-25">
+                <label for="service-date1">Tanggal Service Pertama:</label>
+                <input type="date" id="service-date1" name="service-date1" required>
+                <br><br>
+                <label for="service-date2">Tanggal Service Kedua:</label>
+                <input type="date" id="service-date2" name="service-date2" required>
+                <br><br>
+                <p><strong>Catatan:</strong> Jadwal service dilakukan dua kali setahun.</p>
+                <button type="submit">Simpan Jadwal</button>
             </div>
-            <p>Service tiap 1 bulan sekali</p>
-            <button class="button" onclick="closeModal()">Simpan</button>
         </div>
-    </div>
 
-    <script>
-        function showModal() {
-            document.getElementById('modal').style.display = 'block';
-        }
+        <script>
+            function showModal() {
+                document.getElementById('modal').style.display = 'block';
+            }
 
-        function closeModal() {
-            document.getElementById('modal').style.display = 'none';
-        }
-    </script>
+            function hideModal() {
+                document.getElementById('modal').style.display = 'none';
+            }
+        </script>
 </body>
 
 </html>
