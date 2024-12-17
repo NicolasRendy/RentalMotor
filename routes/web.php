@@ -54,7 +54,6 @@ Route::get('/Konfirmasi', function () {
 Route::get('/kelola', [HalamanController::class,'kelola']);
 Route::get('/kelola', [HalamanController::class, 'kelola'])->name('kelola');
 
-
 Route::get('/edit', function () {
     return view('edit');
 });
