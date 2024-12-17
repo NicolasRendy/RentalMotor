@@ -51,6 +51,10 @@ Route::get('/Konfirmasi', function () {
     return view('Konfirmasi');
 });
 
+Route::get('/Laporan', function () {
+    return view('Laporan');
+});
+
 Route::get('/kelola', [HalamanController::class,'kelola']);
 Route::get('/kelola', [HalamanController::class, 'kelola'])->name('kelola');
 
