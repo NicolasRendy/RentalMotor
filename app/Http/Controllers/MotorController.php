@@ -13,22 +13,11 @@ class MotorController extends Controller
         $motors = Motor::all();
 
         return view('/layanan', compact('motors'));
-
-        // foreach ($motors as $motor) {
-        //     // Mengonversi gambar BLOB menjadi format base64
-        //     if ($motor->fotoMotor) {
-        //         $motor->fotoMotorBase64 = base64_encode($motor->fotoMotor);
-        //     } else {
-        //         $motor->fotoMotorBase64 = null;
-        //     }
-        // }
-
-        return view('layanan', compact('motors'));
     }
 
     public function store(Request $request)
     {
-
+        
         // Upload gambar ke database
         $gambar = $request->file('fotoMotor')->getContent();
 
@@ -39,12 +28,20 @@ class MotorController extends Controller
             'fotoMotor' => $gambar,
         ]);
 
-        return redirect()->route('motors.index')->with('success', 'Data berhasil ditambahkan');
+        return redirect()->route('kelola');
     }
 
     public function index()
     {
         $motors = Motor::all();
         return view('testGambar', compact('motors'));
+    }
+
+    public function destroy($kodeMotor)
+    {
+        $motor = Motor::findOrFail($kodeMotor);
+        $motor->delete();
+
+        return redirect()->route('motors.index')->with('success', 'Motor berhasil dihapus.');
     }
 }

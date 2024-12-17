@@ -3,45 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Motor</title>
+    <title>Motor List</title>
 </head>
 <body>
     <h1>Daftar Motor</h1>
-    <form action="{{ route('motors.store') }}" method="POST" enctype="multipart/form-data">
-        @csrf
-        <label for="noPlat">Nomor Plat:</label>
-        <input type="text" name="noPlat" id="noPlat" required>
-        <label for="gambar">Gambar:</label>
-        <input type="file" name="fotoMotor" id="fotoMotor" required>
-        <br><br>
-        <label for="jenisMotor">Jenis Motor</label>
-        <input type="text" name="jenisMotor" id="jenisMotor" required>
-        <br><br>
-        <label for="Harga">Harga</label>
-        <input type="number" name="Harga" id="Harga" required min="1">
-        <br><br>
-        <button type="submit">Tambah Motor</button>
-    </form>
-    <h2>List Motor</h2>
     <table border="1">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>No Plat</th>
+                <th>No. Plat</th>
                 <th>Jenis Motor</th>
                 <th>Harga</th>
-                <th>Gambar</th>
+                <th>Status</th>
+                <th>Foto</th>
+                <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($motors as $motor)
+            @foreach($motors as $motor)
                 <tr>
-                    <td>{{ $motor->kodeMotor }}</td>
                     <td>{{ $motor->noPlat }}</td>
-                    <td>{{ $motor->jenisMotor}}</td>
-                    <td>{{ $motor->harga}}</td>
+                    <td>{{ $motor->jenisMotor }}</td>
+                    <td>{{ $motor->harga }}</td>
+                    <td>{{ $motor->status == 0 ? 'Tersedia' : 'Tidak Tersedia' }}</td>
                     <td>
-                        <img src="data:image/jpeg;base64,{{ base64_encode($motor->fotoMotor) }}" alt="Gambar Motor" style="width: 100px;">
+                        <img src="data:image/jpeg;base64,{{ base64_encode($motor->fotoMotor) }}" alt="{{ $motor->jenisMotor }}" width="100">
+                    </td>
+                    <td>
+                        <!-- Form untuk hapus -->
+                        <form action="{{ route('motors.destroy', $motor->kodeMotor) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus motor ini?');">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" style="background-color: red; color: white; border: none; padding: 5px 10px; cursor: pointer;">Hapus</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach

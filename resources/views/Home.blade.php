@@ -1,5 +1,6 @@
 <html lang="id">
 <!DOCTYPE html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,6 +45,7 @@
            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
        }
    </style>
+
 </head>
 
 <body>
@@ -55,6 +57,7 @@
             <a href="/Registrasi" class="nav-button">Registrasi</a>
         </nav>
     </header>
+
 <br><br>
 
     <div class="container">
