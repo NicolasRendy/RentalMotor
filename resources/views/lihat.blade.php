@@ -7,70 +7,31 @@
     <link rel="stylesheet" href="{{ asset('css/styleInclude.css') }}">
     <title>Layanan Rental Motor Tunas Baru</title>
     <style>
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+
         }
 
-        .form-container {
-            background: rgb(175, 3, 3);
-            padding: 2em;
-            margin: 2em 0;
-            box-shadow: 0 0 10px rgb(248, 245, 245);
-            color: white;
-            background-color: #6f99df;
+        table,
+        th,
+        td {
+            border: 1px solid #ccc;
         }
 
-        label,
-        input,
-        select,
-        button {
-            color: #f7f1f1(14, 13, 13);
-        }
-
-        input[type="submit"],
-        button {
-            color: white;
-            background-color: #6f99df;
-            border: none;
-            padding: 0.5em 1em;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #583bb5;
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #6f99df;
-            min-width: 150px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-
-        .dropdown-content button {
-            background-color: #6f99df;
-            color: white;
+        th,
+        td {
             padding: 10px;
             text-align: left;
-            border: none;
-            width: 100%;
         }
 
-        .dropdown-content button:hover {
-            background-color: #583bb5;
+        th {
+            background-color: #f4f4f4;
         }
 
-        .dropdown:hover .dropdown-content {
-            display: block;
+        h1{
+            text-align: center;
         }
     </style>
 </head>
@@ -79,6 +40,7 @@
     <header>
         <nav>
             <a href="/kelola" class="nav-button">Kelola</a>
+            <a href="/Konfirmasi" class="nav-button">Konfirmasi</a>
             <div class="dropdown">
                 <a href="maintenance" class="nav-button">Maintenance</a>
                 <div class="dropdown-content">
@@ -88,30 +50,58 @@
             </div>
         </nav>
     </header>
+    <h1>Lihat Jadwal Service</h1>
 
-    <div class="container">
-        <section>
-            <br>
-            <div class="motor-list">
-                <div class="motor-item">
-                    <img src="{{ asset('images/home.jpg') }}" width="100px">
-                    <h3>Meongg</h3>
-                    <p>Harga: Rp 500/hari</p>
-                    <a href="/:)" class="btn-pesan">
-                        <button type="button">Lihat Jadwal Service</button>
-                    </a>
-                </div>
-                <div class="motor-item">
-                    <img src="{{ asset('images/home.jpg') }}" width="100px">
-                    <h3>Meongg</h3>
-                    <p>Harga: Rp 500/hari</p>
-                    <a href="/:)" class="btn-pesan">
-                        <button type="button">Lihat Jadwal  Service</button>
-                    </a>
-                </div>
-            </div>
-        </section>
-    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nomor Plat</th>
+                <th>Tanggal Service Pertama</th>
+                <th>Tanggal Service Kedua</th>
+            </tr>
+        </thead>
+        <tbody id="service-schedule">
+            <!-- Jadwal service akan ditambahkan di sini secara dinamis -->
+        </tbody>
+    </table>
+
+    <script>
+        // Contoh data jadwal service
+        const serviceData = [
+            {
+                motorName: "Honda Beat",
+                serviceDate1: "2024-06-15",
+                serviceDate2: "2024-12-15"
+            },
+            {
+                motorName: "Yamaha NMAX",
+                serviceDate1: "2024-05-10",
+                serviceDate2: "2024-11-10"
+            }
+        ];
+
+        // Fungsi untuk menampilkan jadwal service
+        function displayServiceSchedule(data) {
+            const tableBody = document.getElementById('service-schedule');
+
+            data.forEach((item, index) => {
+                const row = document.createElement('tr');
+
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${item.motorName}</td>
+                    <td>${item.serviceDate1}</td>
+                    <td>${item.serviceDate2}</td>
+                `;
+
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Menampilkan data jadwal service di tabel
+        displayServiceSchedule(serviceData);
+    </script>
     <br><br><br><br><br><br>
     <footer>
         <p>Hubungi kami: 081-233-689 | email@TunasBaru.com</p>

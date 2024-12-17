@@ -47,11 +47,12 @@ Route::get('/daftarPenyewaan', function () {
     return view('daftarPenyewaan');
 });
 
+Route::get('/Konfirmasi', function () {
+    return view('Konfirmasi');
+});
 
 Route::get('/kelola', [HalamanController::class,'kelola']);
 Route::get('/kelola', [HalamanController::class, 'kelola'])->name('kelola');
-
-
 
 Route::get('/edit', function () {
     return view('edit');
