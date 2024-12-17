@@ -50,8 +50,8 @@ Route::get('/daftarPenyewaan', function () {
 
 Route::get('/kelola', [HalamanController::class,'kelola']);
 Route::get('/kelola', [HalamanController::class, 'kelola'])->name('kelola');
-
-
+Route::get('/Editmotor/{id}', [MotorController::class, 'getMotorData']); // Mengambil data motor berdasarkan ID
+Route::put('/Updatemotor/{id}', [MotorController::class, 'updateMotor'])->name('motors.update');
 
 Route::get('/edit', function () {
     return view('edit');
@@ -92,9 +92,6 @@ Route::get('/input', function () {
 Route::get('/lihat', function () {
     return view('lihat');
 });
-
-
-
 
 Route::get('/layanan', [MotorController::class, 'getAllMotor'])->name('layanan.index');
 

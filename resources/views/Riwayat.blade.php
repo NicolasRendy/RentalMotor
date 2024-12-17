@@ -104,10 +104,10 @@
             <div class="nota-header">Nota Penyewaan</div>
             <div class="penyewaan-card">
                 <div class="info">
-                    <p><strong>Nama Pelanggan:</strong> NULL</p>
-                    <p><strong>Alamat Pelanggan:</strong> NULL</p>
-                    <p><strong>Jenis Motor:</strong> NULL</p>
-                    <p><strong>No. Plat:</strong> NULL</p>
+                    <p><strong>Nama Pelanggan:</strong> {{ session('nama') }}</p>
+                    <p><strong>Alamat Pelanggan:</strong> {{ session('alamat') }}</p>
+                    <p><strong>Jenis Motor:</strong> {{$item->jenisMotor}}</p>
+                    <p><strong>No. Plat:</strong>  {{ $item->noPlat}} </p>
                     <p><strong>Tanggal Pengambilan:</strong> {{ $item->tanggalPengambilan }}</p>
                     <p><strong>Tanggal Pengembalian:</strong> {{ $item->tanggalPengembalian }}</p>
                     <p><strong>TotalHarga:</strong> {{ $item->TotalHarga }}</p><br>
