@@ -78,9 +78,8 @@ Route::get('/Help', function () {
     return view('Help');
 });
 
-Route::get('/Riwayat', function () {
-    return view('Riwayat');
-});
+
+Route::get('/Riwayat', [HalamanController::class, 'showRiwayatUser']);
 
 Route::get('/Pembayaran', function () {
     return view('Pembayaran');

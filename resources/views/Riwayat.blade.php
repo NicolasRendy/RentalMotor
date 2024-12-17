@@ -96,6 +96,10 @@
     </header><br>
     <form action="/daftarPenyewaan">
 
+        @if($riwayat->isEmpty())
+        <p>Belum ada data penyewaan.</p>
+        @else
+        @foreach($riwayat as $item)
         <div class="penyewaan-container">
             <div class="nota-header">Nota Penyewaan</div>
             <div class="penyewaan-card">
@@ -104,14 +108,16 @@
                     <p><strong>Alamat Pelanggan:</strong> NULL</p>
                     <p><strong>Jenis Motor:</strong> NULL</p>
                     <p><strong>No. Plat:</strong> NULL</p>
-                    <p><strong>Tanggal Pengambilan:</strong> NULL</p>
-                    <p><strong>Tanggal Pengembalian:</strong> NULL</p>
-                    <p><strong>Harga:</strong> NULL</p><br>
+                    <p><strong>Tanggal Pengambilan:</strong> {{ $item->tanggalPengambilan }}</p>
+                    <p><strong>Tanggal Pengembalian:</strong> {{ $item->tanggalPengembalian }}</p>
+                    <p><strong>TotalHarga:</strong> {{ $item->TotalHarga }}</p><br>
                     <button class="kirim-button">Oke</button>
                 </div>
             </div>
         </div>
-        
+        @endforeach
+        @endif
+
     </form>
 
     </form>

@@ -46,4 +46,6 @@ class MotorController extends Controller
         }
         return redirect()->back()->with('error', 'Motor tidak ditemukan.');
     }
+
+    
 }
