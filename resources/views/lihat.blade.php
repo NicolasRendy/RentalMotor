@@ -7,31 +7,55 @@
     <link rel="stylesheet" href="{{ asset('css/styleInclude.css') }}">
     <title>Layanan Rental Motor Tunas Baru</title>
     <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
+        h1 {
+            text-align: center;
+            margin: 40px 0 10px;
+        }
 
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         table,
         th,
         td {
-            border: 1px solid #ccc;
+            border: 1px solid #ddd;
         }
 
         th,
         td {
-            padding: 10px;
+            padding: 15px;
             text-align: left;
         }
 
         th {
-            background-color: #f4f4f4;
+            background-color: #d7e2fc;
+
         }
 
-        h1{
-            text-align: center;
+        tbody tr:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+
+        tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        @media (max-width: 768px) {
+            table {
+                width: 100%;
+            }
+
+            nav {
+                flex-direction: column;
+            }
+
+            .nav-button {
+                margin: 5px 0;
+            }
         }
     </style>
 </head>
@@ -41,6 +65,7 @@
         <nav>
             <a href="/kelola" class="nav-button">Kelola</a>
             <a href="/Konfirmasi" class="nav-button">Konfirmasi</a>
+            <a href="/Laporan" class="nav-button">Laporan Keuangan</a>
             <div class="dropdown">
                 <a href="maintenance" class="nav-button">Maintenance</a>
                 <div class="dropdown-content">
@@ -56,6 +81,7 @@
         <thead>
             <tr>
                 <th>No</th>
+                <th>Jenis Motor</th>
                 <th>Nomor Plat</th>
                 <th>Tanggal Service Pertama</th>
                 <th>Tanggal Service Kedua</th>
@@ -71,11 +97,13 @@
         const serviceData = [
             {
                 motorName: "Honda Beat",
+                platNomor: "AB123",
                 serviceDate1: "2024-06-15",
                 serviceDate2: "2024-12-15"
             },
             {
                 motorName: "Yamaha NMAX",
+                platNomor: "DA321",
                 serviceDate1: "2024-05-10",
                 serviceDate2: "2024-11-10"
             }
@@ -91,6 +119,7 @@
                 row.innerHTML = `
                     <td>${index + 1}</td>
                     <td>${item.motorName}</td>
+                    <td>${item.platNomor}</td>
                     <td>${item.serviceDate1}</td>
                     <td>${item.serviceDate2}</td>
                 `;

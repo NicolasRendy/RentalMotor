@@ -265,6 +265,7 @@
         <nav>
             <a href="/kelola" class="nav-button active" >Kelola</a>
             <a href="/Konfirmasi" class="nav-button">Konfirmasi</a>
+            <a href="/Laporan" class="nav-button ">Laporan Keuangan</a>
             <div class="dropdown">
                 <a class="nav-button">Maintenance</a>
                 <div class="dropdown-content">
