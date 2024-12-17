@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,7 +38,7 @@
             margin: 20px auto;
             width: 80%;
             max-width: 800px;
-            background-color:  #87ceeb;
+            background-color: #87ceeb;
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -80,7 +81,8 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
-            background-color: #dce5f4;;
+            background-color: #dce5f4;
+            ;
             padding: 15px;
             border-radius: 10px;
             color: #333;
@@ -90,7 +92,7 @@
         .form-section {
             display: flex;
             align-items: center;
-            gap: 40px; 
+            gap: 40px;
         }
 
 
@@ -131,40 +133,62 @@
         .submit-button:hover {
             background: #583bb5;
         }
-        
-    
     </style>
 </head>
+
 <body>
     <div class="header">
-        <a href="">&#9664;</a>
+        <a href="/kelola">&#9664;</a>
         <span>Tambah Motor Baru</span>
     </div>
 
     <div class="container">
-        <div class="form-section">
-            <div class="upload-box">
-                <span>+</span>
-                <input type="file" accept="image/*">
+        <form action="/TambahProses" method="POST" enctype="multipart/form-data">
+            @csrf <!-- Untuk Laravel CSRF protection -->
+            <div class="form-section">
+                <div class="upload-box">
+                    <img id="preview-image" src="#" alt="Preview"
+                        style="display: none; width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                    <span id="upload-placeholder">+</span>
+                    <input type="file" name="fotoMotor" accept="image/*" id="fotoMotor">
+                </div>
+                <div class="form-inputs">
+                    <div class="form-row">
+                        <label for="jenis-motor">Jenis Motor</label>
+                        <input type="text" id="jenis-motor" name="jenisMotor" placeholder="Masukkan jenis motor" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="no-plat">No. Plat</label>
+                        <input type="text" id="noPlat" name="noPlat" placeholder="Masukkan nomor plat" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="harga">Harga</label>
+                        <input type="text" id="Harga" name="Harga" placeholder="Masukkan harga" required>
+                    </div>
+                </div>
             </div>
-
-            <div class="form-inputs">
-                <div class="form-row">
-                    <label for="jenis-motor">Jenis Motor</label>
-                    <input type="text" id="jenis-motor" placeholder="Masukkan jenis motor">
-                </div>
-                <div class="form-row">
-                    <label for="no-plat">No. Plat</label>
-                    <input type="text" id="no-plat" placeholder="Masukkan nomor plat">
-                </div>
-                <div class="form-row">
-                    <label for="harga">Harga</label>    
-                    <input type="text" id="harga" placeholder="Masukkan harga">
-                </div>
-            </div>
-        </div>
-
-        <button class="submit-button">Simpan</button>
+            <button type="submit" class="submit-button">Simpan</button>
+        </form>
     </div>
+
+    <script>
+        const imageInput = document.getElementById('fotoMotor');
+        const previewImage = document.getElementById('preview-image');
+        const uploadPlaceholder = document.getElementById('upload-placeholder');
+
+        imageInput.addEventListener('change', function(event) {
+            const file = event.target.files[0]; // Ambil file yang diunggah
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    previewImage.src = e.target.result; // Set gambar yang diunggah sebagai sumber
+                    previewImage.style.display = 'block'; // Tampilkan elemen gambar
+                    uploadPlaceholder.style.display = 'none'; // Sembunyikan placeholder
+                };
+                reader.readAsDataURL(file); // Baca file sebagai URL data
+            }
+        });
+    </script>
 </body>
+
 </html>

@@ -3,15 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\menyewa;
+use App\Models\Motor;
 use Illuminate\Http\Request;
 
 class MenyewaController extends Controller
 {
     public function store(Request $request)
     {
-        // Menampilkan semua data yang diterima dari form
-        //dd($request->all());
-        // Validasi data form
         $validated = $request->validate([
             'tanggal_pengambilan' => 'required|date|after_or_equal:today',
             'tanggal_pengembalian' => 'required|date|after_or_equal:tanggal_pengambilan',
@@ -28,6 +26,8 @@ class MenyewaController extends Controller
             'id_pelanggan' => $validated['id_Pelanggan'],
             'kodeMotor' => $validated['kodeMotor'],
         ]);
+
+        Motor::where('kodeMotor', $validated['kodeMotor'])->update(['status' => 1]);
 
         return redirect()->back()->with('success', 'Data penyewaan berhasil disimpan!');
     }
