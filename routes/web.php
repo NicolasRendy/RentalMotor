@@ -107,9 +107,7 @@ Route::get('/input',[jadwalController::class,'inputJadwal'])->name('jadwal.input
 Route::post('/jadwal', [JadwalController::class, 'store'])->name('jadwal.store');
 
 
-Route::get('/lihat', function () {
-    return view('lihat');
-});
+Route::get('/lihat',[jadwalController::class,'allJadwalPick']);
 
 Route::get('/layanan', [MotorController::class, 'getAllMotor'])->name('layanan.index');
 
@@ -130,4 +128,8 @@ Route::post('/motors', [MotorController::class, 'store'])->name('motors.store');
 
 Route::get('/test',function(){
     return view('testProgram');
+});
+
+Route::get('/notif',function(){
+    return view('notifTest');
 });

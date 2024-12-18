@@ -57,6 +57,12 @@
                     <button onclick="window.location.href='/lihat'">Lihat Jadwal</button>
                 </div>
             </div>
+            <form action="/logout" method="POST" style="display: inline;">
+                @csrf
+                <button type="submit" class="nav-button" style="background: none; border: none; color: inherit; cursor: pointer;">
+                    Log Out
+                </button>
+            </form>
         </nav>
     </header>
 
