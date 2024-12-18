@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HalamanController;
+use App\Http\Controllers\jadwalController;
 use App\Http\Controllers\MenyewaController;
 use App\Http\Controllers\MotorController;
 use Illuminate\Support\Facades\Route;
@@ -102,9 +103,9 @@ Route::get('/Pembayaran', function () {
     return view('Pembayaran');
 });
 
-Route::get('/input', function () {
-    return view('input');
-});
+Route::get('/input',[jadwalController::class,'inputJadwal'])->name('jadwal.input');
+Route::post('/jadwal', [JadwalController::class, 'store'])->name('jadwal.store');
+
 
 Route::get('/lihat', function () {
     return view('lihat');

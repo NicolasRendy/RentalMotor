@@ -1,7 +1,3 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="id">
 
@@ -187,8 +183,6 @@
         .modal-content .close-button:hover {
             color: #555;
         }
-
-        
     </style>
 </head>
 
@@ -212,54 +206,63 @@
         <section>
             <br>
             <div class="motor-list">
+                @foreach ($motors as $item)
                 <div class="motor-item">
-                    <img src="{{ asset('images/home.jpg') }}" width="100px">
-                    <h3>Meongg</h3>
-                    <p>Harga: Rp 500/hari</p>
-                    <button type="button" onclick="showModal()">Input Service</button>
+                    <img src="data:image/jpeg;base64,{{ base64_encode($item->fotoMotor) }}" alt="{{ $item->jenisMotor }}" width="100px">
+                    <h3>{{ $item->jenisMotor }}</h3>
+                    <p>Harga: Rp {{ number_format($item->harga, 0, ',', '.') }}/hari</p>
+                    <button type="button" onclick="showModal('{{ $item->jenisMotor }}', '{{ $item->noPlat }}','{{ $item->kodeMotor }}')">Input Service</button>
                 </div>
-                <div class="motor-item">
-                    <img src="{{ asset('images/home.jpg') }}" width="100px">
-                    <h3>Meongg</h3>
-                    <p>Harga: Rp 500/hari</p>
-                    <button type="button" onclick="showModal()">Input Service</button>
-                </div>
+
+                @endforeach
             </div>
         </section>
     </div>
-
+    <br>
+    <br>
+    <br>
     <footer>
         <p>Hubungi kami: 081-233-689 | email@TunasBaru.com</p>
     </footer>
 
-    <div class="modal" id="modal">
-        <div class="modal-content">
-            <div class="info">
-                <h2>Input Jadwal Service</h2>
-                <div><span>Jenis Motor:</span> Honda Beat Street</div>
-                <div><span>No. Plat:</span> AB 2023 HM</div>
-            </div>
-            <div class="input-group">
-                <label for="service-date1">Tanggal Service Pertama:</label>
-                <input type="date" id="service-date1" name="service-date1" required>
-                <br><br>
-                <label for="service-date2">Tanggal Service Kedua:</label>
-                <input type="date" id="service-date2" name="service-date2" required>
-                <br><br>
-                <p><strong>Catatan:</strong> Jadwal service dilakukan dua kali setahun.</p>
-                <button type="submit">Simpan Jadwal</button>
+    <form action="{{ route('jadwal.store') }}" method="POST">
+        @csrf
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <div class="info">
+                    <h2>Input Jadwal Service</h2>
+                    <div><span>Jenis Motor:</span> <span id="motor-type"></span></div>
+                    <div><span>No. Plat:</span> <span id="motor-plate"></span></div>
+                </div>
+                <input type="hidden" id="motor-code" name="kodeMotor" value="motor-code">
+                <div class="input-group">
+                    <label for="service-date1">Tanggal Service Pertama:</label>
+                    <input type="date" id="service-date1" name="tanggalService1" required>
+                    <br><br>
+                    <label for="service-date2">Tanggal Service Kedua:</label>
+                    <input type="date" id="service-date2" name="tanggalService2" required>
+                    <br><br>
+                    <p><strong>Catatan:</strong> Jadwal service dilakukan dua kali setahun.</p>
+                    <button type="submit">Simpan Jadwal</button>
+                    <button type="button" onclick="hideModal()">Kembali</button>
+                </div>
             </div>
         </div>
+    </form>
 
-        <script>
-            function showModal() {
-                document.getElementById('modal').style.display = 'block';
-            }
 
-            function hideModal() {
-                document.getElementById('modal').style.display = 'none';
-            }
-        </script>
+    <script>
+        function showModal(jenisMotor, noPlat, kodeMotor) {
+            document.getElementById('motor-type').textContent = jenisMotor;
+            document.getElementById('motor-plate').textContent = noPlat;
+            document.getElementById('motor-code').value = kodeMotor;
+            document.getElementById('modal').style.display = 'block';
+        }
+
+        function hideModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
 </body>
 
 </html>
