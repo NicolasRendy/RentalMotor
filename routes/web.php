@@ -14,13 +14,19 @@ Route::get('/home', function () {
     return view('Home');
 });
 
+// Route::get('/login', function () {
+//     return view('login');
+// });
+
+// Rute login untuk user biasa
 Route::get('/login', function () {
     return view('login');
-});
+})->name('login');  // pastikan rute login untuk user biasa sudah ada
 
-Route::get('/loginAdmin', function () {
+// Rute login untuk admin
+Route::get('/admin/login', function () {
     return view('login');
-});
+})->name('admin.login');  // pastikan sudah ada nama untuk route admin login
 
 Route::post('/LoginCek', [UserController::class, 'loginProses']);
 

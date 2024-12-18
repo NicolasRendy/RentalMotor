@@ -87,11 +87,11 @@ class UserController extends Controller
         // Cek apakah user login sebagai admin
         if (Auth::guard('admin')->check()) {
             Auth::guard('admin')->logout(); // Logout admin
-
+    
             $request->session()->invalidate();
             $request->session()->regenerateToken();
-
-            return redirect('/loginAdmin');
+    
+            return redirect()->route('admin.login');  // Pastikan mengarahkan ke rute admin login
         }
 
         // Cek apakah user login sebagai user biasa
