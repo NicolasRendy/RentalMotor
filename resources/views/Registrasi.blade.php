@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <link rel="stylesheet" href="{{ asset('css/styleInclude.css') }}">
     <title>Rental Motor Tunas Baru</title>
     <style>
@@ -86,7 +87,7 @@
 <body>
     <header>
         <nav>
-            <a href="/home" class="nav-button">Home</a>
+            <a href="/" class="nav-button">Home</a>
             <a href="/layanan" class="nav-button">Melihat Layanan</a>
             <a href="/login" class="nav-button">Login</a>
             <a href="/Registrasi" class="nav-button active">Registrasi</a>

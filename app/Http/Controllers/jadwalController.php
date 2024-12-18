@@ -46,7 +46,7 @@ class jadwalController extends Controller
     }
 
     public function allJadwalPick(){
-        $jadwalMaintenance = jadwal::all();
+        $jadwalMaintenance = Jadwal::all();
 
         foreach ($jadwalMaintenance as $item){
             $motor = Motor::findOrFail($item->kodeMotor);
