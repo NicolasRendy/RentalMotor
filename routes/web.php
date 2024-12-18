@@ -103,9 +103,11 @@ Route::get('/Help', function () {
 
 Route::get('/Riwayat', [HalamanController::class, 'showRiwayatUser']);
 
-Route::get('/Pembayaran', function () {
-    return view('Pembayaran');
-});
+// Route::get('/Pembayaran', function () {
+//     return view('Pembayaran');
+// });
+
+Route::get('/Pembayaran',[TransaksiController::class,'showPembayaran']);
 
 Route::get('/input',[jadwalController::class,'inputJadwal'])->name('jadwal.input');
 Route::post('/jadwal', [JadwalController::class, 'store'])->name('jadwal.store');

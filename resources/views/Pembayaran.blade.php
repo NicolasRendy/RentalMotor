@@ -144,18 +144,22 @@
             </form>
         </nav>
     </header>
+    @if($bayar->isEmpty())
+        <h1>Tidak ada pembayaran yang tersedia</h1>
+    @else
+    @foreach($bayar as $item)
     <div class="container">
         <section>
             <div class="title">Bayar Sekarang</div>
             <div class="details">
-                <p><strong>Nama:</strong> Della</p>
-                <p><strong>Alamat:</strong> Gedongkiwo</p>
-                <p><strong>Jenis Motor:</strong> Honda Genio</p>
-                <p><strong>No. Plat:</strong> AB 1111 UU</p>
-                <p><strong>Tanggal Penyewaan:</strong> 20/10/2024</p>
-                <p><strong>Tanggal Pengembalian:</strong> 21/10/2024</p>
+                <p><strong>Nama:</strong> {{ session('nama') }}</p>
+                <p><strong>Alamat:</strong> {{ session('alamat') }}</p>
+                <p><strong>Jenis Motor:</strong> {{$item->jenisMotor }}</p>
+                <p><strong>No. Plat:</strong> {{$item->noPlat}}</p>
+                <p><strong>Tanggal Penyewaan:</strong> {{$item->tanggalAmbil}}</p>
+                <p><strong>Tanggal Pengembalian:</strong> {{$item->tanggalKembali}}</p>
             </div><br>
-            <div class="total-price">Total Pesanan: Rp 75.000</div>
+            <div class="total-price">Total Pesanan: Rp {{$item->total_Pembayaran}}</div>
             <div class="payment-methods">
                 <h3>Pilih metode pembayaran</h3>
                 <div class="payment-option">
@@ -176,6 +180,8 @@
             </div>
         </section>
     </div>
+    @endforeach
+    @endif
     <script>
         function toggleBankOptions(show) {
             const bankOptions = document.getElementById("bankOptions");

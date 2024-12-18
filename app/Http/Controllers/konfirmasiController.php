@@ -13,6 +13,7 @@ class konfirmasiController extends Controller
     {
         $sewa = Menyewa::All();
 
+        
         $transaksi = Transaksi::where('status', 0)->get();
 
         foreach ($sewa as $item) {

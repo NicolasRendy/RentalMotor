@@ -22,4 +22,19 @@ class TransaksiController extends Controller
         }
         return view('Laporan',compact('transaksi'));
     }
+
+    public function showPembayaran(){
+        $bayar = Transaksi::where('status', 0)
+                  ->where('id_pelanggan', session('id_pelanggan'))
+                  ->get();
+
+        foreach ($bayar as $item){
+            $motor = Motor::findOrFail($item->kodeMotor);
+
+            $item->jenisMotor = $motor->jenisMotor;
+            $item->noPlat = $motor->noPlat;
+        }
+
+        return view('Pembayaran',compact('bayar'));
+    }
 }

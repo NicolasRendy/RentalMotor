@@ -186,7 +186,7 @@
                 <td>{{ $loop->iteration }}</td>
                 <td>{{$item->jenisMotor}}</td>
                 <td>{{$item->noPlat}}</td>
-                <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#userModal">Data user</button></td>
+                <!-- <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#userModal">Data user</button></td> -->
                 <td>{{$item->tanggalPengambilan}}</td>
                 <td>{{$item->tanggalPengembalian}}</td>
                 <td> 
@@ -222,7 +222,7 @@
                 <td>{{ $loop->iteration }}</td>
                 <td>{{$item->jenisMotor}}</td>
                 <td>{{$item->noPlat}}</td>
-                <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#userModal">Data user</button></td>
+                <!--  -->
                 <td>{{$item->tanggalAmbil}}</td>
                 <td>{{$item->tanggalKembali}}</td>
                 <td> 
