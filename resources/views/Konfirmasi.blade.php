@@ -14,7 +14,7 @@
         }
 
         table {
-            width: 90%;
+            width: 95%;
             margin: 20px auto;
             border-collapse: collapse;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -164,6 +164,7 @@
                 <th>No</th>
                 <th>Jenis Motor</th>
                 <th>Nomor Plat</th>
+                <th>Data User</th>
                 <th>Tanggal Pengambilan</th>
                 <th>Konfirmasi Pengambilan</th>
                 <th>Tanggal Pengembalian</th>
@@ -186,11 +187,23 @@
         </div>
     </div>
 
+    <!-- Modal User Details -->
+<div id="userModal" class="modal">
+    <div class="modal-content">
+        <img id="ktpPhoto" src="" alt="KTP Photo" style="width: 100%; height: auto; border-radius: 5px;">
+        <h3 id="userName"></h3>
+        <p id="userAddress"></p>
+        <button class="btn-modal btn-ya" id="btnOke">Oke</button>
+    </div>
+</div>
+
+
     <script>
         const konfirData = [
             {
                 motorName: "Honda Beat",
                 platNomor: "AB123",
+                user: "Userrrrrr",
                 date: "2024-06-15",
                 returnDate: "2024-06-20",
                 konfirmasiAmbil: false,
@@ -199,6 +212,7 @@
             {
                 motorName: "Yamaha NMAX",
                 platNomor: "DA321",
+                user: "Userrrrrr",
                 date: "2024-05-10",
                 returnDate: "2024-05-15",
                 konfirmasiAmbil: false,
@@ -217,6 +231,7 @@
                     <td>${index + 1}</td>
                     <td>${item.motorName}</td>
                     <td>${item.platNomor}</td>
+                    <td><button class="btn-konfirmasi">${item.user}</button></td>
                     <td>${item.date}</td>
                     <td><button class="btn-konfirmasi ${item.konfirmasiAmbil ? 'btn-disabled' : ''}" onclick="openModal('ambil', ${index})" ${item.konfirmasiAmbil ? 'disabled' : ''}>Konfirmasi Ambil</button></td>
                     <td>${item.returnDate}</td>
