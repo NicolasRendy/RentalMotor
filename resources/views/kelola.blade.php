@@ -309,7 +309,7 @@
                     <p>Harga: Rp {{ number_format($item->harga, 0, ',', '.') }}/hari</p>
                     <div class="actions">
                         <div class="kelola">
-                            <button class="btn-trash edit-button" data-id="{{ $item->kodeMotor }}">
+                            <button class="btn-trash edit-button" id="iconSampah" php artisan make:controller NamaControllerdata-id="{{ $item->kodeMotor }}">
                                 <i class="fas fa-edit"></i>
                             </button>
                             <form action="{{ route('motors.destroy', $item->kodeMotor) }}" method="POST" style="display: inline;">

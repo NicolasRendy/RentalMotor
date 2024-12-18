@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\HalamanController;
 use App\Http\Controllers\jadwalController;
+use App\Http\Controllers\konfirmasiController;
 use App\Http\Controllers\MenyewaController;
 use App\Http\Controllers\MotorController;
+use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -58,13 +60,15 @@ Route::get('/daftarPenyewaan', function () {
     return view('daftarPenyewaan');
 });
 
-Route::get('/Konfirmasi', function () {
-    return view('Konfirmasi');
-});
+Route::get('/Konfirmasi',[konfirmasiController::class,'showKonfirmasi']);
+Route::get('/konfirmasi-ambil/{kodePesan}', [konfirmasiController::class, 'konfirmasiAmbil'])->name('konfirmasi.ambil');
+Route::get('/konfirmasi-kembali/{kodeTransaksi}', [konfirmasiController::class, 'konfirmasiKembali'])->name('konfirmasi.kembali');
 
-Route::get('/Laporan', function () {
-    return view('Laporan');
-});
+// Route::get('/Laporan', function () {
+//     return view('Laporan');
+// });
+Route::get('/Laporan',[TransaksiController::class,'showAllKeuangan']);
+
 
 Route::get('/kelola', [HalamanController::class,'kelola']);
 Route::get('/kelola', [HalamanController::class, 'kelola'])->name('kelola');
