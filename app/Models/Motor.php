@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Motor extends Model
-{   
+{
     public $timestamps = false;
     protected $table = 'motor';
     protected $primaryKey = 'kodeMotor';
@@ -13,6 +13,10 @@ class Motor extends Model
         'noPlat',
         'jenisMotor',
         'harga',
-        'fotoMotor'];
-        
+        'fotoMotor'
+    ];
+
+    // Set kolom auto increment
+    // protected $keyType = 'int'; // Tipe data primary key
+    // public $incrementing = true; // Set auto incrementing primary key
 }

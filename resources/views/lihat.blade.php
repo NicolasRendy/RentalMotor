@@ -67,16 +67,24 @@
             <a href="/Konfirmasi" class="nav-button">Konfirmasi</a>
             <a href="/Laporan" class="nav-button">Laporan Keuangan</a>
             <div class="dropdown">
-                <a href="maintenance" class="nav-button">Maintenance</a>
+                <a href="#" class="nav-button">Maintenance</a>
                 <div class="dropdown-content">
                     <button onclick="window.location.href='/input'">Input Jadwal</button>
                     <button onclick="window.location.href='/lihat'">Lihat Jadwal</button>
                 </div>
             </div>
+            <form action="/logout" method="POST" style="display: inline;">
+                @csrf
+                <button type="submit" class="nav-button" style="background: none; border: none; color: inherit; cursor: pointer;">
+                    Log Out
+                </button>
+            </form>
         </nav>
     </header>
+    @if($jadwalMaintenance->isEmpty())
+    <h1>Belum ada data jadwal Maintenance yang di masukan.</h1>
+    @else
     <h1>Lihat Jadwal Service</h1>
-
     <table>
         <thead>
             <tr>
@@ -86,51 +94,18 @@
                 <th>Tanggal Service Pertama</th>
                 <th>Tanggal Service Kedua</th>
             </tr>
+            @foreach ($jadwalMaintenance as $jadwal)
+            <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{$jadwal->jenisMotor}}</td>
+                <td>{{$jadwal->noPlat}}</td>
+                <td>{{$jadwal->tanggal_pertama}}</td>
+                <td>{{$jadwal->tanggal_kedua}}</td>
+            </tr>
+            @endforeach
         </thead>
-        <tbody id="service-schedule">
-            <!-- Jadwal service akan ditambahkan di sini secara dinamis -->
-        </tbody>
     </table>
-
-    <script>
-        // Contoh data jadwal service
-        const serviceData = [
-            {
-                motorName: "Honda Beat",
-                platNomor: "AB123",
-                serviceDate1: "2024-06-15",
-                serviceDate2: "2024-12-15"
-            },
-            {
-                motorName: "Yamaha NMAX",
-                platNomor: "DA321",
-                serviceDate1: "2024-05-10",
-                serviceDate2: "2024-11-10"
-            }
-        ];
-
-        // Fungsi untuk menampilkan jadwal service
-        function displayServiceSchedule(data) {
-            const tableBody = document.getElementById('service-schedule');
-
-            data.forEach((item, index) => {
-                const row = document.createElement('tr');
-
-                row.innerHTML = `
-                    <td>${index + 1}</td>
-                    <td>${item.motorName}</td>
-                    <td>${item.platNomor}</td>
-                    <td>${item.serviceDate1}</td>
-                    <td>${item.serviceDate2}</td>
-                `;
-
-                tableBody.appendChild(row);
-            });
-        }
-
-        // Menampilkan data jadwal service di tabel
-        displayServiceSchedule(serviceData);
-    </script>
+    @endif
     <br><br><br><br><br><br>
     <footer>
         <p>Hubungi kami: 081-233-689 | email@TunasBaru.com</p>

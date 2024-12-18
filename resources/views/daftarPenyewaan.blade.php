@@ -56,7 +56,6 @@
 <body>
     <header>
         <nav>
-            <a href="/Help" class="nav-button">Help</a>
             <a href="/daftarPenyewaan" class="nav-button active">Sewa</a>
             <a href="/Riwayat" class="nav-button ">Riwayat Penyewaan</a>
             <a href="/Pembayaran" class="nav-button ">Pembayaran</a>

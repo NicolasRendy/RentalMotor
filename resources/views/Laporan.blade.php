@@ -51,12 +51,18 @@
             <a href="/Konfirmasi" class="nav-button">Konfirmasi</a>
             <a href="/Laporan" class="nav-button active">Laporan Keuangan</a>
             <div class="dropdown">
-                <a href="maintenance" class="nav-button">Maintenance</a>
+                <a href="#" class="nav-button">Maintenance</a>
                 <div class="dropdown-content">
                     <button onclick="window.location.href='/input'">Input Jadwal</button>
                     <button onclick="window.location.href='/lihat'">Lihat Jadwal</button>
                 </div>
             </div>
+            <form action="/logout" method="POST" style="display: inline;">
+                @csrf
+                <button type="submit" class="nav-button" style="background: none; border: none; color: inherit; cursor: pointer;">
+                    Log Out
+                </button>
+            </form>
         </nav>
     </header>
 

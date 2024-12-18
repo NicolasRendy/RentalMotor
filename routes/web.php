@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HalamanController;
+use App\Http\Controllers\jadwalController;
 use App\Http\Controllers\MenyewaController;
 use App\Http\Controllers\MotorController;
 use Illuminate\Support\Facades\Route;
@@ -14,9 +15,19 @@ Route::get('/home', function () {
     return view('Home');
 });
 
+// Route::get('/login', function () {
+//     return view('login');
+// });
+
+// Rute login untuk user biasa
 Route::get('/login', function () {
     return view('login');
-});
+})->name('login');  // pastikan rute login untuk user biasa sudah ada
+
+// Rute login untuk admin
+Route::get('/admin/login', function () {
+    return view('login');
+})->name('admin.login');  // pastikan sudah ada nama untuk route admin login
 
 Route::post('/LoginCek', [UserController::class, 'loginProses']);
 
@@ -92,13 +103,11 @@ Route::get('/Pembayaran', function () {
     return view('Pembayaran');
 });
 
-Route::get('/input', function () {
-    return view('input');
-});
+Route::get('/input',[jadwalController::class,'inputJadwal'])->name('jadwal.input');
+Route::post('/jadwal', [JadwalController::class, 'store'])->name('jadwal.store');
 
-Route::get('/lihat', function () {
-    return view('lihat');
-});
+
+Route::get('/lihat',[jadwalController::class,'allJadwalPick']);
 
 Route::get('/layanan', [MotorController::class, 'getAllMotor'])->name('layanan.index');
 
@@ -119,4 +128,8 @@ Route::post('/motors', [MotorController::class, 'store'])->name('motors.store');
 
 Route::get('/test',function(){
     return view('testProgram');
+});
+
+Route::get('/notif',function(){
+    return view('notifTest');
 });

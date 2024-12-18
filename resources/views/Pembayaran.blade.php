@@ -125,18 +125,22 @@
         .pay-button:hover {
             background: #583bb5;
         }
-        }
+        
     </style>
 </head>
 
 <body>
     <header>
         <nav>
-            <a href="/Help" class="nav-button">Help</a>
             <a href="/daftarPenyewaan" class="nav-button">Sewa</a>
             <a href="/Riwayat" class="nav-button">Riwayat Penyewaan</a>
             <a href="/Pembayaran" class="nav-button active"> Pembayaran</a>
-            <a href="/logout" class="nav-button">Log Out</a>
+            <form action="/logout" method="POST" style="display: inline;">
+                @csrf
+                <button type="submit" class="nav-button" style="background: none; border: none; color: inherit; cursor: pointer;">
+                    Log Out
+                </button>
+            </form>
         </nav>
     </header>
     <div class="container">
