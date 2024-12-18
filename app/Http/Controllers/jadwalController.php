@@ -53,6 +53,7 @@ class jadwalController extends Controller
 
             $item->jenisMotor = $motor->jenisMotor;
             $item->noPlat = $motor->noPlat;
+            $item->gambar = $motor-> fotoMotor;
         }
 
         return view('lihat',compact('jadwalMaintenance'));

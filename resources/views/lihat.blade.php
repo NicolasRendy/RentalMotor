@@ -57,6 +57,36 @@
                 margin: 5px 0;
             }
         }
+
+
+        .image-hover-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .icon {
+            width: 100px;
+            height: 32px;
+            cursor: pointer;
+        }
+
+        .hover-image {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            width: 350px;
+            border: 1px solid #ddd;
+            background-color: white;
+            padding: 5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .image-hover-container:hover .hover-image {
+            display: block;
+        }
     </style>
 </head>
 
@@ -93,7 +123,10 @@
                 <th>Nomor Plat</th>
                 <th>Tanggal Service Pertama</th>
                 <th>Tanggal Service Kedua</th>
+                <th>Gambar Motor</th>
             </tr>
+        </thead>
+        <tbody>
             @foreach ($jadwalMaintenance as $jadwal)
             <tr>
                 <td>{{ $loop->iteration }}</td>
@@ -101,9 +134,17 @@
                 <td>{{$jadwal->noPlat}}</td>
                 <td>{{$jadwal->tanggal_pertama}}</td>
                 <td>{{$jadwal->tanggal_kedua}}</td>
+                <td>
+                    <div class="image-hover-container">
+                        <img src="path/to/default-icon.png" alt="Icon" class="icon">
+                        <div class="hover-image">
+                            <img src="data:image/jpeg;base64,{{ base64_encode($jadwal->gambar)}}" alt="Gambar Motor">
+                        </div>
+                    </div>
+                </td>
             </tr>
             @endforeach
-        </thead>
+        </tbody>
     </table>
     @endif
     <br><br><br><br><br><br>
