@@ -57,6 +57,8 @@ Route::get('/Laporan', function () {
 
 Route::get('/kelola', [HalamanController::class,'kelola']);
 Route::get('/kelola', [HalamanController::class, 'kelola'])->name('kelola');
+Route::get('/Editmotor/{id}', [MotorController::class, 'getMotorData']); // Mengambil data motor berdasarkan ID
+Route::put('/Updatemotor/{id}', [MotorController::class, 'updateMotor'])->name('motors.update');
 
 Route::get('/edit', function () {
     return view('edit');
@@ -67,6 +69,8 @@ Route::get('/tambah', function () {
 });
 
 Route::post('/TambahProses', [MotorController::class, 'store']);
+
+Route::delete('/hapus/{kodeMotor}', [MotorController::class, 'destroy'])->name('motors.destroy');
 
 // Route::get('/daftarPenyewaan',function(){
 //     return view('daftarPenyewaan');
@@ -81,9 +85,8 @@ Route::get('/Help', function () {
     return view('Help');
 });
 
-Route::get('/Riwayat', function () {
-    return view('Riwayat');
-});
+
+Route::get('/Riwayat', [HalamanController::class, 'showRiwayatUser']);
 
 Route::get('/Pembayaran', function () {
     return view('Pembayaran');
@@ -96,9 +99,6 @@ Route::get('/input', function () {
 Route::get('/lihat', function () {
     return view('lihat');
 });
-
-
-
 
 Route::get('/layanan', [MotorController::class, 'getAllMotor'])->name('layanan.index');
 
@@ -115,7 +115,7 @@ Route::post('/menyewaProses', [MenyewaController::class, 'store']);
 // test
 Route::get('/motors', [MotorController::class, 'index'])->name('motors.index');
 Route::post('/motors', [MotorController::class, 'store'])->name('motors.store');
-Route::delete('/motors/{kodeMotor}', [MotorController::class, 'destroy'])->name('motors.destroy');
+
 
 Route::get('/test',function(){
     return view('testProgram');

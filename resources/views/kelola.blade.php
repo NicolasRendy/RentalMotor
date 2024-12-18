@@ -256,6 +256,22 @@
         .btn-trash i {
             font-size: 18px;
         }
+
+
+        .actions .btn-trash {
+            display: inline-block;
+            vertical-align: middle;
+            /* Menjaga posisi tombol sejajar dengan elemen lainnya */
+            margin-top: 5px;
+            /* Menurunkan tombol agar lebih sejajar */
+        }
+
+        .actions .edit-button {
+            display: inline-block;
+            vertical-align: middle;
+            margin-top: 5px;
+            /* Menurunkan tombol Edit */
+        }
     </style>
 
 </head>
@@ -278,64 +294,105 @@
     <div class="container">
         <section>
             <button class="add-button" onclick="window.location.href='/tambah';">+ Tambah Motor</button>
-
             <div class="motor-list">
                 @foreach ($motors as $item)
                 <div class="motor-item">
-                    <img src="data:image/jpeg;base64,{{ base64_encode($item->fotoMotor) }}" alt="{{ $item->jenisMotor }}" width: 100px;>
+                    <img src="data:image/jpeg;base64,{{ base64_encode($item->fotoMotor) }}" alt="{{ $item->jenisMotor }}" width="100px;">
                     <h3>{{ $item->jenisMotor }}</h3>
                     <p>Harga: Rp {{ number_format($item->harga, 0, ',', '.') }}/hari</p>
                     <div class="actions">
-                        <div id="kelola">
-                            <button class="btn-trash edit-button" id="editButton">
+                        <div class="kelola">
+                            <button class="btn-trash edit-button" data-id="{{ $item->kodeMotor }}">
                                 <i class="fas fa-edit"></i>
                             </button>
-                            <button class="btn-trash">
-                                <i class="fas fa-trash"></i>
-                            </button>
+                            <form action="{{ route('motors.destroy', $item->kodeMotor) }}" method="POST" style="display: inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn-trash" type="submit" onclick="return confirm('Apakah Anda yakin ingin menghapus motor ini?')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
                 @endforeach
             </div>
-
+            <!-- Modal untuk Edit -->
             <div id="editModal" class="modal">
                 <div class="modal-content">
                     <h2>Edit Deskripsi Motor</h2>
                     <div class="motor-image">
-                        <img src="{{ asset('images/home.jpg') }}" alt="Motor">
+                        <img id="motorImage" src="" alt="Motor">
                     </div>
-                    <p><strong>Jenis Motor:</strong> <input type="text" placeholder="Masukkan jenis motor"></p>
-                    <p><strong>No. Plat:</strong> <input type="text" placeholder="Masukkan nomor plat"></p>
-                    <p><strong>Harga:</strong> <input type="text" placeholder="Masukkan harga"></p>
-                    <div class="modal-footer">
-                        <button type="button" class="cancel-button" id="closeModal">Batal</button>
-                        <button type="submit" class="save-button">Simpan</button>
-                    </div>
+                    <form id="editMotorForm" action="" method="POST">
+                        @csrf
+                        @method('PUT')
+                        <p><strong>Jenis Motor:</strong> <input type="text" id="jenisMotor" name="jenisMotor" placeholder="Masukkan jenis motor"></p>
+                        <p><strong>No. Plat:</strong> <input type="text" id="noPlat" name="noPlat" placeholder="Masukkan nomor plat"></p>
+                        <p><strong>Harga:</strong> <input type="text" id="harga" name="harga" placeholder="Masukkan harga"></p>
+                        <div class="modal-footer">
+                            <button type="button" class="cancel-button" id="closeModal">Batal</button>
+                            <button type="submit" class="save-button">Simpan</button>
+                        </div>
+                    </form>
                 </div>
             </div>
+
         </section>
     </div>
     <br><br><br><br><br><br>
     <footer>
         <p>Hubungi kami: 081-233-689 | email@TunasBaru.com</p>
     </footer>
+
     <script>
-        const kelola = document.getElementById('kelola');
-        const editButton = document.getElementById('editButton');
+        // Ambil semua tombol edit
+        const editButtons = document.querySelectorAll('.edit-button');
         const editModal = document.getElementById('editModal');
         const closeModal = document.getElementById('closeModal');
+        const jenisMotorInput = document.getElementById('jenisMotor');
+        const noPlatInput = document.getElementById('noPlat');
+        const hargaInput = document.getElementById('harga');
+        const motorImage = document.getElementById('motorImage');
+        const editMotorForm = document.getElementById('editMotorForm');
 
-        // Tampilkan modal saat tombol Edit diklik
-        editButton.addEventListener('click', () => {
-            kelola.classList.add('blur'); // Tambahkan efek blur
-            editModal.classList.add('show'); // Tampilkan modal
+        // Event listener untuk tombol Edit
+        editButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const motorId = this.getAttribute('data-id'); // Ambil data-id (kode motor)
+                fetchMotorData(motorId); // Ambil data motor berdasarkan ID
+            });
         });
 
-        // Tutup modal saat tombol Batal diklik
+        // Fungsi untuk fetch data motor
+        function fetchMotorData(id) {
+            fetch(`/Editmotor/${id}`) // Ambil data motor menggunakan API Laravel
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error); // Jika motor tidak ditemukan
+                    } else {
+                        // Mengakses data motor dan foto dari response
+                        jenisMotorInput.value = data.jenisMotor;
+                        noPlatInput.value = data.noPlat;
+                        hargaInput.value = data.harga;
+                        motorImage.src = data.fotoMotor; // Menampilkan gambar motor
+
+                        // Set form action ke URL update motor
+                        editMotorForm.action = `/Updatemotor/${id}`;
+
+                        // Tampilkan modal
+                        editModal.classList.add('show');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching motor data:', error);
+                });
+        }
+
+        // Menutup modal
         closeModal.addEventListener('click', () => {
-            kelola.classList.remove('blur'); // Hilangkan efek blur
-            editModal.classList.remove('show'); // Sembunyikan modal
+            editModal.classList.remove('show');
         });
     </script>
 </body>
