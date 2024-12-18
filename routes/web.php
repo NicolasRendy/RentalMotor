@@ -18,6 +18,10 @@ Route::get('/login', function () {
     return view('login');
 });
 
+Route::get('/loginAdmin', function () {
+    return view('login');
+});
+
 Route::post('/LoginCek', [UserController::class, 'loginProses']);
 
 Route::get('/Registrasi', function () {

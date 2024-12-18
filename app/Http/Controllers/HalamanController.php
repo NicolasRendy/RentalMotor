@@ -28,32 +28,6 @@ class HalamanController extends Controller
         return view('/kelola', compact('motors'));
     }
 
-    // public function showRiwayatUser()
-    // {
-
-    //     // Ambil id_pelanggan dari session Laravel
-    //     $id_pelanggan = session('id_pelanggan');
-
-    //     // Periksa apakah session id_pelanggan tersedia
-    //     if (!$id_pelanggan) {
-    //         return redirect('/login')->with('error', 'Anda harus login untuk melihat riwayat.');
-    //     }
-
-    //     // Ambil data riwayat berdasarkan id_pelanggan
-    //     $riwayat = Menyewa::where('id_pelanggan', $id_pelanggan)->get();
-
-
-    //     foreach ($riwayat as $item) {
-    //         // $item->kolom_baru = 'Nilai Tambahan';
-    //         $motor = Motor::findOrFail($riwayat->kodeMotor);
-    //         $riwayat->noPlat = $motor->noPlat;
-    //         $riwayat->jenisMotor = $motor->jenisMotor;
-    //     }
-        
-    //     // Kembalikan view dengan data riwayat
-    //     return view('Riwayat', compact('riwayat'));
-    // }
-
     public function showRiwayatUser()
 {
     // Ambil id_pelanggan dari session Laravel
