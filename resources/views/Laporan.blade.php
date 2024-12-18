@@ -69,6 +69,9 @@
 
     <h1>Laporan Keuangan</h1>
 
+    @if($transaksi->isEmpty())
+    <h1>Belum ada pemasukan sama sekali</h1>
+    @else
     <table id="laporan">
         <tr>
             <th>No</th>
@@ -78,35 +81,22 @@
             <th>Plat Motor</th>
             <th>Harga</th>
         </tr>
+        @foreach ($transaksi as $item)
         <tr>
-            <td>1</td>
-            <td>20/10/2024</td>
-            <td>Della</td>
-            <td>Honda Genio</td>
-            <td>AB 1111 UU</td>
-            <td>75.000</td>
+            <td>{{ $loop->iteration }}</td>
+            <td>{{$item->tanggalKembali}}</td>
+            <td>{{$item->nama}}</td>
+            <td>{{$item->jenisMotor}}</td>
+            <td>{{$item->noPlat}}</td>
+            <td>{{$item->total_Pembayaran}}</td>
         </tr>
-        <tr>
-            <td>2</td>
-            <td>18/10/2024</td>
-            <td>Maria</td>
-            <td>Honda Beat FI</td>
-            <td>AB 1234 YZ</td>
-            <td>75.000</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>18/10/2024</td>
-            <td>Ari</td>
-            <td>Honda Vario 125</td>
-            <td>AB 3030 KK</td>
-            <td>85.000</td>
-        </tr>
+        @endforeach
         <tr>
             <td colspan="5">Total Pendapatan:</td>
             <td id="finalTotal"></td>
         </tr>
     </table>
+    @endif
 
     <div class="download">
         <button onclick="downloadReport()">Download</button>
