@@ -174,7 +174,6 @@
                 <th>No</th>
                 <th>Jenis Motor</th>
                 <th>Nomor Plat</th>
-                <th>Data User</th>
                 <th>Tanggal Pengambilan</th>
                 <th>Tanggal Pengembalian</th>
                 <th>Konfirmasi Pengambilan</th>
@@ -210,7 +209,6 @@
                 <th>No</th>
                 <th>Jenis Motor</th>
                 <th>Nomor Plat</th>
-                <th>Data User</th>
                 <th>Tanggal Pengambilan</th>
                 <th>Tanggal Pengembalian</th>
                 <th>Konfirmasi Pengembalian</th>

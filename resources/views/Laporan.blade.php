@@ -98,7 +98,7 @@
     </table>
     @endif
 
-    <div class="download">
+    <div class="download" >
         <button onclick="downloadReport()">Download</button>
     </div>
 
