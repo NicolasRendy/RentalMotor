@@ -54,4 +54,5 @@ class HalamanController extends Controller
         return view('Riwayat', compact('riwayat'));
     }
 
+
 }

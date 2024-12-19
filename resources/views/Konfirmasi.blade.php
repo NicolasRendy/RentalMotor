@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <link rel="stylesheet" href="{{ asset('css/styleInclude.css') }}">
     <title>Layanan Rental Motor Tunas Baru</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
     <style>
         h1 {
             text-align: center;
@@ -153,137 +155,88 @@
                     <button onclick="window.location.href='/lihat'">Lihat Jadwal</button>
                 </div>
             </div>
+            <form action="/logout" method="POST" style="display: inline;">
+                @csrf
+                <button type="submit" class="nav-button" style="background: none; border: none; color: inherit; cursor: pointer;">
+                    Log Out
+                </button>
+            </form>
         </nav>
     </header>
 
-    <h1>Konfirmasi Pengambilan dan Pengembalian Motor</h1>
-
+    <h1>Konfirmasi Pengambilan</h1>
+    @if($sewa->isEmpty())
+    <h1>Belum ada pesanan yang datang</h1>
+    @else
     <table>
         <thead>
             <tr>
                 <th>No</th>
                 <th>Jenis Motor</th>
                 <th>Nomor Plat</th>
-                <th>Data User</th>
                 <th>Tanggal Pengambilan</th>
+                <th>Tanggal Pengembalian</th>
                 <th>Konfirmasi Pengambilan</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($sewa as $item)
+            <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{$item->jenisMotor}}</td>
+                <td>{{$item->noPlat}}</td>
+                <!-- <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#userModal">Data user</button></td> -->
+                <td>{{$item->tanggalPengambilan}}</td>
+                <td>{{$item->tanggalPengembalian}}</td>
+                <td> 
+                <a href="{{ route('konfirmasi.ambil', ['kodePesan' => $item->id_pesan]) }}" class="btn btn-konfirmasi">
+                    Konfirmasi Ambil
+                </a>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+    @endif
+
+    <h1>Konfirmasi Pengembalian Motor</h1>
+    @if($transaksi->isEmpty())
+    <h1>Semua Motor tersedia dan belum ada pengambilan</h1>
+    @else
+    <table>
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Jenis Motor</th>
+                <th>Nomor Plat</th>
+                <th>Tanggal Pengambilan</th>
                 <th>Tanggal Pengembalian</th>
                 <th>Konfirmasi Pengembalian</th>
             </tr>
         </thead>
-        <tbody id="schedule">
-            <!-- Jadwal service akan ditambahkan di sini secara dinamis -->
+        <tbody>
+            @foreach ($transaksi as $item)
+            <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{$item->jenisMotor}}</td>
+                <td>{{$item->noPlat}}</td>
+                <!--  -->
+                <td>{{$item->tanggalAmbil}}</td>
+                <td>{{$item->tanggalKembali}}</td>
+                <td> 
+                <a href="{{ route('konfirmasi.kembali', ['kodeTransaksi' => $item->id_Transaksi]) }}" class="btn btn-kembali">
+                    Konfirmasi Pengembalian
+                </a>
+                </td>
+            </tr>
+            @endforeach
         </tbody>
     </table>
+    @endif
 
-    <!-- Modal Dialog -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <p>Yakin ingin konfirmasi?</p>
-            <div class="modal-buttons">
-                <button class="btn-modal btn-ya" id="btnYa">Ya</button>
-                <button class="btn-modal btn-batal" id="btnBatal">Batal</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal User Details -->
-<div id="userModal" class="modal">
-    <div class="modal-content">
-        <img id="ktpPhoto" src="" alt="KTP Photo" style="width: 100%; height: auto; border-radius: 5px;">
-        <h3 id="userName"></h3>
-        <p id="userAddress"></p>
-        <button class="btn-modal btn-ya" id="btnOke">Oke</button>
-    </div>
-</div>
-
-
-    <script>
-        const konfirData = [
-            {
-                motorName: "Honda Beat",
-                platNomor: "AB123",
-                user: "Userrrrrr",
-                date: "2024-06-15",
-                returnDate: "2024-06-20",
-                konfirmasiAmbil: false,
-                konfirmasiKembali: false
-            },
-            {
-                motorName: "Yamaha NMAX",
-                platNomor: "DA321",
-                user: "Userrrrrr",
-                date: "2024-05-10",
-                returnDate: "2024-05-15",
-                konfirmasiAmbil: false,
-                konfirmasiKembali: false
-            }
-        ];
-
-        function displayKonfir(data) {
-            const tableBody = document.getElementById('schedule');
-            tableBody.innerHTML = '';
-
-            data.forEach((item, index) => {
-                const row = document.createElement('tr');
-
-                row.innerHTML = `
-                    <td>${index + 1}</td>
-                    <td>${item.motorName}</td>
-                    <td>${item.platNomor}</td>
-                    <td><button class="btn-konfirmasi">${item.user}</button></td>
-                    <td>${item.date}</td>
-                    <td><button class="btn-konfirmasi ${item.konfirmasiAmbil ? 'btn-disabled' : ''}" onclick="openModal('ambil', ${index})" ${item.konfirmasiAmbil ? 'disabled' : ''}>Konfirmasi Ambil</button></td>
-                    <td>${item.returnDate}</td>
-                    <td><button class="btn-kembali ${!item.konfirmasiAmbil ? 'btn-disabled' : ''}" onclick="openModal('kembali', ${index})" ${!item.konfirmasiAmbil || item.konfirmasiKembali ? 'disabled' : ''}>Konfirmasi Kembali</button></td>
-                `;
-
-                tableBody.appendChild(row);
-            });
-        }
-
-        // Modal logic
-        const modal = document.getElementById('modal');
-        const btnYa = document.getElementById('btnYa');
-        const btnBatal = document.getElementById('btnBatal');
-
-        let currentAction = null;
-        let currentIndex = null;
-
-        function openModal(action, index) {
-            currentAction = action;
-            currentIndex = index;
-            modal.style.display = 'block';
-        }
-
-        function closeModal() {
-            modal.style.display = 'none';
-        }
-
-        btnYa.addEventListener('click', () => {
-            if (currentIndex !== null) {
-                if (currentAction === 'ambil') {
-                    konfirData[currentIndex].konfirmasiAmbil = true;
-                } else if (currentAction === 'kembali') {
-                    konfirData.splice(currentIndex, 1); // Remove the row
-                }
-                displayKonfir(konfirData);
-                closeModal();
-            }
-        });
-
-        btnBatal.addEventListener('click', closeModal);
-
-        // Close modal if clicked outside
-        window.onclick = (event) => {
-            if (event.target === modal) {
-                closeModal();
-            }
-        };
-
-        displayKonfir(konfirData);
-    </script>
-
+    <br>
+    <br>
+    <br>
     <footer>
         <p>Hubungi kami: 081-233-689 | email@TunasBaru.com</p>
     </footer>

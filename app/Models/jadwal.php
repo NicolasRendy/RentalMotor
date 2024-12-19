@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class jadwal extends Model
+class Jadwal extends Model
 {
     public $timestamps = false;
     protected $table = 'jadwal'; // Nama tabel

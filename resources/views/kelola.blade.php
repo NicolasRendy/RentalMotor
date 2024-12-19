@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <link rel="stylesheet" href="{{ asset('css/styleInclude.css') }}">
     <title>Layanan Rental Motor Tunas Baru</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
@@ -308,7 +309,7 @@
                     <p>Harga: Rp {{ number_format($item->harga, 0, ',', '.') }}/hari</p>
                     <div class="actions">
                         <div class="kelola">
-                            <button class="btn-trash edit-button" data-id="{{ $item->kodeMotor }}">
+                            <button class="btn-trash edit-button" id="iconSampah" php artisan make:controller NamaControllerdata-id="{{ $item->kodeMotor }}">
                                 <i class="fas fa-edit"></i>
                             </button>
                             <form action="{{ route('motors.destroy', $item->kodeMotor) }}" method="POST" style="display: inline;">

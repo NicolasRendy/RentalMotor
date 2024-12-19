@@ -29,6 +29,6 @@ class MenyewaController extends Controller
 
         Motor::where('kodeMotor', $validated['kodeMotor'])->update(['status' => 1]);
 
-        return redirect()->back()->with('success', 'Data penyewaan berhasil disimpan!');
+        return redirect()->intended('/Riwayat');
     }
 }

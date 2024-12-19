@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/styleInclude.css') }}">
     <title>Rental Motor Tunas Baru</title>
@@ -51,7 +52,7 @@
 <body>
     <header>
         <nav>
-            <a href="/home" class="nav-button active">Home</a>
+            <a href="/" class="nav-button active">Home</a>
             <a href="/layanan" class="nav-button">Melihat Layanan</a>
             <a href="/login" class="nav-button">Login</a>
             <a href="/Registrasi" class="nav-button">Registrasi</a>
@@ -63,6 +64,7 @@
     <div class="container">
     <div class="content">
         <h2>Selamat Datang di Rental Motor Tunas Baru</h2>
+        <p>Alamat: Selatan Kampus IPDA, Jl. Maguwo, Karang Bendo, Banguntapan, Kec. Banguntapan,Kabupaten Bantul, Daerah Istimewa Yogyakarta 55198.</p>
         <p>Kami menyediakan layanan rental motor dengan berbagai pilihan motor terbaru dan berkualitas. Nikmati
             perjalanan Anda dengan motor kami yang terawat dengan baik dan harga sewa yang terjangkau.</p>
     <div class="gallery">
